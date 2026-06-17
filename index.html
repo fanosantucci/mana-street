@@ -210,6 +210,20 @@
       position: relative; overflow: hidden;
       aspect-ratio: 3/4; background: #111;
     }
+    .product-img-wrap {
+      width: 100%; height: 100%; position: relative; overflow: hidden;
+    }
+    .product-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .product-card:hover .product-img-wrap img { transform: scale(1.07); }
+    .img-back {
+      position: absolute; inset: 0; opacity: 0;
+      transition: opacity 0.4s ease;
+      transform: none !important;
+    }
+    .product-card:hover .img-back { opacity: 1; }
     .product-emoji {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -504,6 +518,23 @@
       transition: filter 0.2s;
     }
     .wa-cart-btn:hover { filter: brightness(1.1); }
+    .mp-cart-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      background: var(--accent); color: white; width: 100%; padding: 1rem;
+      border: none; cursor: none;
+      font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
+      clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
+      transition: filter 0.2s; margin-bottom: 0.6rem;
+    }
+    .mp-cart-btn:hover { filter: brightness(1.1); }
+    .mp-cart-btn:disabled { opacity: 0.4; pointer-events: none; }
+    .mp-cart-btn.loading { opacity: 0.7; }
+    .cart-btn-separator {
+      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(240,235,224,0.2); text-align: center;
+      margin: 0.4rem 0;
+    }
     .cart-badge {
       background: var(--accent); color: white; font-family: 'Space Mono', monospace;
       font-size: 0.5rem; min-width: 17px; height: 17px; border-radius: 50%;
@@ -517,48 +548,75 @@
       display: flex; align-items: center; gap: 0.2rem; font-family: 'Syne', sans-serif;
     }
     .nav-cart-btn:hover { opacity: 1; }
-    .add-to-cart-btn {
-      margin-top: 0.6rem; background: var(--accent); color: white; border: none;
+    .view-product-btn {
+      margin-top: 0.6rem; background: transparent; color: var(--white);
+      border: 1px solid rgba(240,235,224,0.35);
       width: 100%; padding: 0.55rem;
       font-family: 'Anton', sans-serif; font-size: 0.8rem;
       letter-spacing: 2px; text-transform: uppercase;
-      cursor: none; transition: background 0.2s;
+      cursor: none; transition: background 0.2s, border-color 0.2s;
     }
-    .add-to-cart-btn:hover { background: var(--gold); }
+    .view-product-btn:hover { background: var(--accent); border-color: var(--accent); }
     /* PRODUCT MODAL */
     .product-modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.78);
+      position: fixed; inset: 0; background: rgba(0,0,0,0.82);
       z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.3s;
     }
     .product-modal-overlay.open { opacity: 1; pointer-events: all; }
     .product-modal {
       position: fixed; top: 50%; left: 50%;
       transform: translate(-50%, -46%);
-      width: 480px; max-width: 95vw; max-height: 92vh; overflow-y: auto;
+      width: 880px; max-width: 97vw; max-height: 94vh;
       background: var(--black); z-index: 600;
-      padding: 2.5rem; border: 1px solid rgba(240,235,224,0.1);
+      border: 1px solid rgba(240,235,224,0.1); overflow: hidden;
       opacity: 0; pointer-events: none;
       transition: opacity 0.3s, transform 0.3s;
     }
     .product-modal.open { opacity: 1; pointer-events: all; transform: translate(-50%, -50%); }
+    .modal-layout {
+      display: grid; grid-template-columns: 1fr 1fr; min-height: 480px;
+    }
+    .modal-image-col { position: relative; background: #0d0d0d; }
+    .modal-image-wrap {
+      width: 100%; height: 100%; min-height: 420px;
+      position: relative; overflow: hidden; cursor: zoom-in;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-image-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.4s ease;
+    }
+    .modal-image-wrap:hover img { transform: scale(1.04); }
+    .modal-image-emoji {
+      font-size: 5rem; user-select: none;
+    }
+    .modal-zoom-hint {
+      position: absolute; bottom: 1rem; right: 1rem;
+      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      letter-spacing: 2px; text-transform: uppercase;
+      background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.6); padding: 0.38rem 0.7rem;
+      pointer-events: none;
+    }
+    .modal-info-col {
+      padding: 2.2rem 2rem 2rem; overflow-y: auto; max-height: 94vh;
+      display: flex; flex-direction: column;
+    }
     .modal-close {
-      position: absolute; top: 1.2rem; right: 1.5rem;
-      background: none; border: none; color: var(--white);
-      font-size: 1.2rem; cursor: none; opacity: 0.4; transition: opacity 0.2s;
+      position: absolute; top: 1rem; right: 1.2rem; z-index: 10;
+      background: rgba(10,10,10,0.7); border: 1px solid rgba(240,235,224,0.12);
+      color: var(--white); width: 32px; height: 32px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; cursor: none; opacity: 0.6; transition: opacity 0.2s;
     }
     .modal-close:hover { opacity: 1; }
-    .modal-top { display: flex; gap: 1.2rem; align-items: center; margin-bottom: 2rem; }
-    .modal-emoji-box {
-      width: 72px; height: 72px; border-radius: 4px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 2.4rem;
-    }
     .modal-info-cat {
       font-family: 'Space Mono', monospace; font-size: 0.58rem;
       letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem;
     }
-    .modal-info-name { font-family: 'Anton', sans-serif; font-size: 1.7rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1; }
-    .modal-info-price { font-family: 'Space Mono', monospace; font-size: 0.95rem; color: var(--accent); margin-top: 0.35rem; }
-    .modal-section { margin-bottom: 1.4rem; padding: 0.3rem; border-radius: 2px; }
+    .modal-info-name { font-family: 'Anton', sans-serif; font-size: 1.9rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 0.4rem; }
+    .modal-info-price { font-family: 'Space Mono', monospace; font-size: 0.95rem; color: var(--accent); margin-bottom: 1.6rem; }
+    .modal-section { margin-bottom: 1.3rem; padding: 0.3rem; border-radius: 2px; }
     .modal-section-label {
       font-family: 'Space Mono', monospace; font-size: 0.6rem;
       letter-spacing: 3px; text-transform: uppercase;
@@ -575,17 +633,51 @@
     }
     .option-btn:hover { border-color: rgba(240,235,224,0.5); }
     .option-btn.selected { border-color: var(--accent); background: var(--accent); }
+    .payment-methods { display: flex; flex-direction: column; gap: 0.4rem; }
+    .payment-method {
+      font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.5px;
+      border: 1px solid rgba(240,235,224,0.1); padding: 0.5rem 0.75rem;
+      display: flex; align-items: center; gap: 0.55rem; color: rgba(240,235,224,0.8);
+    }
     .modal-qty-row { display: flex; align-items: center; gap: 1rem; }
+    .qty-btn {
+      background: transparent; border: 1px solid rgba(240,235,224,0.2);
+      color: var(--white); width: 32px; height: 32px; font-size: 1.1rem;
+      cursor: none; transition: border-color 0.2s; display: flex;
+      align-items: center; justify-content: center;
+    }
+    .qty-btn:hover { border-color: var(--accent); }
     .modal-qty-display { font-family: 'Anton', sans-serif; font-size: 1.6rem; min-width: 28px; text-align: center; }
     .modal-add-btn {
       background: var(--accent); color: white; border: none;
-      width: 100%; padding: 1rem; margin-top: 0.5rem;
+      width: 100%; padding: 1rem; margin-top: auto; padding-top: 1rem;
       font-family: 'Anton', sans-serif; font-size: 1rem;
       letter-spacing: 3px; text-transform: uppercase;
       cursor: none; transition: background 0.2s;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
     }
     .modal-add-btn:hover { background: var(--gold); }
+    /* LIGHTBOX */
+    .lightbox-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+      z-index: 900; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .lightbox-overlay.open { opacity: 1; pointer-events: all; }
+    .lightbox-img {
+      max-width: 92vw; max-height: 92vh; object-fit: contain; display: block;
+    }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 2rem;
+      background: none; border: none; color: var(--white);
+      font-size: 1.5rem; cursor: none; opacity: 0.5; transition: opacity 0.2s;
+    }
+    .lightbox-close:hover { opacity: 1; }
+    @media (max-width: 640px) {
+      .modal-layout { grid-template-columns: 1fr; }
+      .modal-image-wrap { min-height: 260px; }
+      .modal-info-col { padding: 1.4rem 1.2rem; max-height: 60vh; }
+    }
     .cart-item-variant {
       font-family: 'Space Mono', monospace; font-size: 0.6rem;
       letter-spacing: 1px; color: rgba(240,235,224,0.45); margin-top: 0.1rem;
@@ -895,31 +987,51 @@
 <div class="product-modal-overlay" id="productModalOverlay"></div>
 <div class="product-modal" id="productModal">
   <button class="modal-close" id="modalClose">✕</button>
-  <div class="modal-top">
-    <div class="modal-emoji-box" id="modalEmojiBox"></div>
-    <div>
+  <div class="modal-layout">
+    <!-- Imagen -->
+    <div class="modal-image-col">
+      <div class="modal-image-wrap" id="modalImageWrap">
+        <span class="modal-zoom-hint">⤢ Ampliar</span>
+      </div>
+    </div>
+    <!-- Info -->
+    <div class="modal-info-col">
       <div class="modal-info-cat" id="modalCat"></div>
       <div class="modal-info-name" id="modalName"></div>
       <div class="modal-info-price" id="modalPrice"></div>
+      <div class="modal-section" id="colorSection">
+        <span class="modal-section-label">Color: <strong id="selectedColorLabel">Elegí</strong></span>
+        <div class="option-btns" id="colorBtns"></div>
+      </div>
+      <div class="modal-section" id="sizeSection">
+        <span class="modal-section-label">Talle: <strong id="selectedSizeLabel">Elegí</strong></span>
+        <div class="option-btns" id="sizeBtns"></div>
+      </div>
+      <div class="modal-section">
+        <span class="modal-section-label">Métodos de pago</span>
+        <div class="payment-methods">
+          <div class="payment-method">💵 Efectivo</div>
+          <div class="payment-method">📲 Transferencia bancaria</div>
+          <div class="payment-method">💳 Mercado Pago · 3 cuotas sin interés</div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <span class="modal-section-label">Cantidad</span>
+        <div class="modal-qty-row">
+          <button class="qty-btn" id="modalMinus">−</button>
+          <span class="modal-qty-display" id="modalQtyNum">1</span>
+          <button class="qty-btn" id="modalPlus">+</button>
+        </div>
+      </div>
+      <button class="modal-add-btn" id="modalAddBtn">+ Agregar al carrito</button>
     </div>
   </div>
-  <div class="modal-section" id="colorSection">
-    <span class="modal-section-label">Color: <strong id="selectedColorLabel">Elegí</strong></span>
-    <div class="option-btns" id="colorBtns"></div>
-  </div>
-  <div class="modal-section" id="sizeSection">
-    <span class="modal-section-label">Talle: <strong id="selectedSizeLabel">Elegí</strong></span>
-    <div class="option-btns" id="sizeBtns"></div>
-  </div>
-  <div class="modal-section">
-    <span class="modal-section-label">Cantidad</span>
-    <div class="modal-qty-row">
-      <button class="qty-btn" id="modalMinus">−</button>
-      <span class="modal-qty-display" id="modalQtyNum">1</span>
-      <button class="qty-btn" id="modalPlus">+</button>
-    </div>
-  </div>
-  <button class="modal-add-btn" id="modalAddBtn">+ Agregar al carrito</button>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightboxOverlay">
+  <button class="lightbox-close" id="lightboxClose">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
 <!-- CART SIDEBAR -->
@@ -937,7 +1049,9 @@
       <span class="cart-total-label">Total estimado</span>
       <span class="cart-total-amount" id="cartTotal">$0</span>
     </div>
-    <a href="#" class="wa-cart-btn" id="waCartBtn" target="_blank" rel="noopener noreferrer">💬 Realizar mi pedido</a>
+    <button class="mp-cart-btn" id="mpCartBtn" disabled>💳 Pagar con Mercado Pago</button>
+    <div class="cart-btn-separator">— o también —</div>
+    <a href="#" class="wa-cart-btn" id="waCartBtn" target="_blank" rel="noopener noreferrer" style="opacity:0.4;pointer-events:none;">💬 Coordinar por WhatsApp</a>
   </div>
 </div>
 
@@ -963,25 +1077,49 @@
   // ── CATALOG DATA ──────────────────────────────────────────────
   const SZ = ['XS','S','M','L','XL','XXL','3XL'];
   const catalogData = {
-    buzos:      { name:'Buzos',            products:[
-      { name:'Buzo Mana',    price:'$14.000', badge:'NUEVO', emoji:'🧥', bg:'#0d1520', cat:'Buzos',
-        colors:['Negro','Gris','Azul Navy'], sizes:SZ }
+    buzos: { name:'Buzos', products:[
+      { name:'Buzo Cardinal',  price:'Consultar', badge:'NUEVO', img:'imagenes/Buzo Cardinal (adelante).jpeg', imgBack:'imagenes/Buzo Cardinal (atras).jpeg', cat:'Buzos', colors:['Negro','Gris','Azul Navy'], sizes:SZ },
+      { name:'Buzo Lisos',     price:'Consultar', img:'imagenes/Buzo lisos.jpeg',   cat:'Buzos', colors:['Negro','Gris','Blanco'], sizes:SZ },
+      { name:'Buzo Tejido',    price:'Consultar', img:'imagenes/Buzo Tejido..jpeg', cat:'Buzos', colors:['Negro','Beige'],         sizes:SZ }
     ]},
-    camperas:   { name:'Camperas',         products:[] },
-    remeras:    { name:'Remeras',          products:[
-      { name:'Remera Wave',  price:'$8.500',  badge:'NUEVO', emoji:'🔥', bg:'#1a0a06', cat:'Remeras',
-        colors:['Negro','Blanco','Gris'],    sizes:SZ },
-      { name:'Remera Palms', price:'$8.500',  emoji:'👕',    bg:'#1a0e00', cat:'Remeras',
-        colors:['Negro','Blanco','Verde'],   sizes:SZ }
+    camperas: { name:'Camperas', products:[
+      { name:'Campera de Jean',     price:'Consultar', img:'imagenes/Campera de jean.jpeg',     cat:'Camperas', colors:['Azul'],  sizes:SZ },
+      { name:'Campera EternityKNB', price:'Consultar', img:'imagenes/Campera EternityKNB.jpeg', cat:'Camperas', colors:['Negro'], sizes:SZ },
+      { name:'Campera Negra',       price:'Consultar', img:'imagenes/Campera negra.jpeg',        cat:'Camperas', colors:['Negro'], sizes:SZ }
     ]},
-    joggings:   { name:'Joggings y Jeans', products:[] },
-    gorras:     { name:'Gorras',           products:[
-      { name:'Gorra Sunset', price:'$5.200',  emoji:'🧢',    bg:'#1a1200', cat:'Gorras',
-        colors:['Negro','Azul','Beige'],     sizes:[] }
+    remeras: { name:'Remeras', products:[
+      { name:'Remera BhT',       price:'Consultar', img:'imagenes/Remera BhT.jpeg',                    cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Everything',price:'Consultar', img:'imagenes/Remera Everything (adelante).jpeg',  imgBack:'imagenes/Remera Everything (atras).jpeg', cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Flores',    price:'Consultar', img:'imagenes/Remera Flores (adelante).jpeg',      imgBack:'imagenes/Remera Flores (atras).jpeg',     cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Michigan',  price:'Consultar', img:'imagenes/Remera Michigan.jpeg',                cat:'Remeras', colors:['Negro','Gris'],   sizes:SZ },
+      { name:'Remera MyB',       price:'Consultar', img:'imagenes/Remera MyB (adelante).jpeg',         imgBack:'imagenes/Remera MyB (atras).jpeg',        cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Ruk',       price:'Consultar', img:'imagenes/Remera Ruk (adelante).jpeg',         imgBack:'imagenes/Remera Ruk (atras).jpeg',        cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Sensory',   price:'Consultar', img:'imagenes/Remera sensory.jpeg',                cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Remera Talk To Me',price:'Consultar', img:'imagenes/Remera Talk To Me.jpeg',             cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
+      { name:'Chomba SNTS',      price:'Consultar', img:'imagenes/Chomba SNTS.jpeg',                   cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ }
     ]},
-    accesorios: { name:'Accesorios',       products:[] },
-    cinturones: { name:'Cinturones',       products:[] }
+    joggings: { name:'Joggings y Jeans', products:[
+      { name:'Jean Baggy Claro', price:'Consultar', img:'imagenes/Jean Baggy Claro.jpeg', cat:'Joggings y Jeans', colors:['Claro'],        sizes:SZ },
+      { name:'Jean Baggy Negro', price:'Consultar', img:'imagenes/Jean Baggy Negro.jpeg', cat:'Joggings y Jeans', colors:['Negro'],        sizes:SZ },
+      { name:'Jean con Puño',    price:'Consultar', img:'imagenes/Jean con puño.jpeg',    cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ },
+      { name:'Jean Malboro',     price:'Consultar', img:'imagenes/Jean Malboro (adelante).jpeg', imgBack:'imagenes/Jean Malboro (atras).jpeg', cat:'Joggings y Jeans', colors:['Negro'], sizes:SZ },
+      { name:'Jean Recto',       price:'Consultar', img:'imagenes/Jean recto.jpeg',       cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ },
+      { name:'Jogging Recto',    price:'Consultar', img:'imagenes/Jogging recto.jpeg',    cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ }
+    ]},
+    gorras:     { name:'Gorras',     products:[] },
+    accesorios: { name:'Accesorios', products:[] },
+    cinturones: { name:'Cinturones', products:[] }
   };
+
+  function renderMedia(p) {
+    if (p.img) {
+      return `<div class="product-img-wrap">
+        <img class="img-front" src="${p.img}" alt="${p.name}" loading="lazy">
+        ${p.imgBack ? `<img class="img-back" src="${p.imgBack}" alt="${p.name} atras" loading="lazy">` : ''}
+      </div>`;
+    }
+    return `<div class="product-emoji" style="background:${p.bg||'#111'};">${p.emoji||'👕'}</div>`;
+  }
 
   // ── CATALOG NAVIGATION ────────────────────────────────────────
   document.querySelectorAll('.cat-card').forEach(card => {
@@ -1003,8 +1141,8 @@
     } else {
       grid.style.display = ''; empty.style.display = 'none';
       grid.innerHTML = cat.products.map(p => `
-        <div class="product-card">
-          <div class="product-emoji" style="background:${p.bg};">${p.emoji}</div>
+        <div class="product-card" style="cursor:none;">
+          ${renderMedia(p)}
           <div class="product-overlay"></div>
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
           <div class="product-always">
@@ -1015,11 +1153,11 @@
             <div class="product-cat">${p.cat}</div>
             <div class="product-name">${p.name}</div>
             <div class="product-price">${p.price}</div>
-            <button class="add-to-cart-btn">+ Agregar</button>
+            <button class="view-product-btn">Ver detalles →</button>
           </div>
         </div>`).join('');
-      grid.querySelectorAll('.add-to-cart-btn').forEach((btn, i) => {
-        btn.addEventListener('click', e => { e.stopPropagation(); openProductModal(cat.products[i]); });
+      grid.querySelectorAll('.product-card').forEach((card, i) => {
+        card.addEventListener('click', () => openProductModal(cat.products[i]));
       });
     }
     document.getElementById('catalogo').scrollIntoView({ behavior: 'smooth' });
@@ -1034,11 +1172,43 @@
   // ── PRODUCT MODAL ─────────────────────────────────────────────
   let modalProduct = null, modalSelectedColor = null, modalSelectedSize = null, modalQty = 1;
 
+  function openLightbox(src, alt) {
+    document.getElementById('lightboxImg').src = src;
+    document.getElementById('lightboxImg').alt = alt || '';
+    document.getElementById('lightboxOverlay').classList.add('open');
+  }
+  function closeLightbox() {
+    document.getElementById('lightboxOverlay').classList.remove('open');
+  }
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxOverlay').addEventListener('click', e => {
+    if (e.target === document.getElementById('lightboxOverlay') ||
+        e.target === document.getElementById('lightboxImg')) closeLightbox();
+  });
+
   function openProductModal(product) {
     modalProduct = product;
     modalSelectedColor = null; modalSelectedSize = null; modalQty = 1;
-    document.getElementById('modalEmojiBox').textContent = product.emoji;
-    document.getElementById('modalEmojiBox').style.background = product.bg;
+    const wrap = document.getElementById('modalImageWrap');
+    const hint = wrap.querySelector('.modal-zoom-hint');
+    const existing = wrap.querySelector('img, .modal-image-emoji');
+    if (existing) existing.remove();
+    if (product.img) {
+      const img = document.createElement('img');
+      img.src = product.img; img.alt = product.name;
+      wrap.insertBefore(img, hint);
+      wrap.style.cursor = 'zoom-in';
+      wrap.onclick = () => openLightbox(product.img, product.name);
+      hint.style.display = '';
+    } else {
+      const emo = document.createElement('div');
+      emo.className = 'modal-image-emoji';
+      emo.textContent = product.emoji || '👕';
+      wrap.insertBefore(emo, hint);
+      wrap.style.cursor = 'default';
+      wrap.onclick = null;
+      hint.style.display = 'none';
+    }
     document.getElementById('modalCat').textContent   = product.cat;
     document.getElementById('modalName').textContent  = product.name;
     document.getElementById('modalPrice').textContent = product.price;
@@ -1159,19 +1329,25 @@
     const container = document.getElementById('cartItems');
     const totalEl   = document.getElementById('cartTotal');
     const waBtn     = document.getElementById('waCartBtn');
+    const mpBtn     = document.getElementById('mpCartBtn');
+
     if (cart.length === 0) {
       container.innerHTML = '<div class="cart-empty-msg">Tu carrito está vacío</div>';
       totalEl.textContent = '$0';
       waBtn.href = 'javascript:void(0)';
       waBtn.style.opacity = '0.4'; waBtn.style.pointerEvents = 'none';
+      mpBtn.disabled = true; mpBtn.textContent = '💳 Pagar con Mercado Pago';
       return;
     }
+
     waBtn.style.opacity = ''; waBtn.style.pointerEvents = '';
+    mpBtn.disabled = false;
+
     container.innerHTML = cart.map(item => {
       const variant = [item.color, item.size].filter(Boolean).join(' · ');
       return `
         <div class="cart-item">
-          <div class="cart-item-emoji">${item.emoji}</div>
+          <div class="cart-item-emoji">${item.emoji || '👕'}</div>
           <div class="cart-item-info">
             <div class="cart-item-name">${item.name}</div>
             ${variant ? `<div class="cart-item-variant">${variant}</div>` : ''}
@@ -1185,15 +1361,21 @@
           <button class="cart-item-remove" data-id="${item.cartId}">✕</button>
         </div>`;
     }).join('');
+
     container.querySelectorAll('.qty-btn').forEach(btn => {
       btn.addEventListener('click', () => changeQty(btn.dataset.id, parseInt(btn.dataset.delta)));
     });
     container.querySelectorAll('.cart-item-remove').forEach(btn => {
       btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
     });
-    const total = cart.reduce((sum, i) => sum + parseInt(i.price.replace(/[\$\.]/g,'')) * i.qty, 0);
+
+    const total = cart.reduce((sum, i) => {
+      const precio = parseInt(i.price.replace(/[^0-9]/g, '')) || 0;
+      return sum + precio * i.qty;
+    }, 0);
     const totalStr = '$' + total.toLocaleString('es-AR');
     totalEl.textContent = totalStr;
+
     const lines = cart.map(i => {
       const v = [i.color, i.size].filter(Boolean).join(', ');
       return `- ${i.name}${v ? ` (${v})` : ''} x${i.qty} — ${i.price}`;
@@ -1201,6 +1383,39 @@
     const msg = `Hola!%20Quiero%20realizar%20el%20siguiente%20pedido:%0A%0A${lines}%0A%0ATotal%3A%20${totalStr}`;
     waBtn.href = `https://wa.me/5492213080753?text=${msg}`;
   }
+
+  // ── MERCADO PAGO CHECKOUT ─────────────────────────────────────
+  document.getElementById('mpCartBtn').addEventListener('click', async () => {
+    const mpBtn = document.getElementById('mpCartBtn');
+    if (cart.length === 0) return;
+
+    mpBtn.disabled = true;
+    mpBtn.classList.add('loading');
+    mpBtn.textContent = '⏳ Procesando...';
+
+    try {
+      const response = await fetch('/api/crear-preferencia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: cart }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al conectar con Mercado Pago');
+      }
+
+      window.location.href = data.init_point;
+
+    } catch (err) {
+      console.error('Error MP:', err);
+      alert('Hubo un problema al conectar con Mercado Pago. Podés coordinarlo por WhatsApp.');
+      mpBtn.disabled = false;
+      mpBtn.classList.remove('loading');
+      mpBtn.textContent = '💳 Pagar con Mercado Pago';
+    }
+  });
 
   function openCart() {
     document.getElementById('cartSidebar').classList.add('open');
