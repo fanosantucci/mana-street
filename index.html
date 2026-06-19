@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Mana Street</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Syne:wght@400;700;800&family=Space+Mono&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -21,7 +21,7 @@
     body {
       background: var(--black);
       color: var(--white);
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       cursor: none;
       overflow-x: hidden;
     }
@@ -50,7 +50,7 @@
     }
     .ticker-track { display: inline-flex; animation: tick 20s linear infinite; }
     .ticker-item {
-      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
       letter-spacing: 2px; text-transform: uppercase;
       color: white; padding: 0 2.5rem;
     }
@@ -62,7 +62,7 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .nav-logo {
-      font-family: 'Anton', sans-serif; font-size: 1.4rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
       letter-spacing: 4px; color: var(--white); text-transform: uppercase;
       mix-blend-mode: difference;
     }
@@ -86,12 +86,12 @@
       opacity: 0.55;
     }
     .hero-tag {
-      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
       letter-spacing: 3px; color: var(--gold); text-transform: uppercase;
       margin-bottom: 1.5rem; position: relative; z-index: 2;
     }
     .hero-title {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(5.5rem, 19vw, 17rem);
       line-height: 0.87; letter-spacing: -2px;
       color: var(--white); position: relative; z-index: 2;
@@ -110,7 +110,7 @@
     .hero-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; }
     .btn-hero {
       display: inline-block; background: var(--accent); color: white;
-      padding: 1rem 2.5rem; font-family: 'Anton', sans-serif;
+      padding: 1rem 2.5rem; font-family: 'Bebas Neue', sans-serif;
       font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase;
       text-decoration: none;
       clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 100%, 14px 100%);
@@ -119,7 +119,7 @@
     .btn-hero:hover { background: var(--gold); transform: translateX(-4px); }
     .btn-ghost {
       display: inline-block; border: 1.5px solid rgba(240,235,224,0.25); color: var(--white);
-      padding: 0.85rem 2rem; font-family: 'Space Mono', monospace;
+      padding: 0.85rem 2rem; font-family: 'DM Sans', sans-serif;
       font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
       transition: border-color 0.2s, color 0.2s;
     }
@@ -145,7 +145,7 @@
       animation: spin 25s linear infinite, breathe 6s ease-in-out infinite;
     }
     .hero-scroll {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
       letter-spacing: 3px; color: rgba(240,235,224,0.25); text-transform: uppercase;
       position: absolute; bottom: 2rem; right: 2.5rem; z-index: 2;
       writing-mode: vertical-rl;
@@ -160,14 +160,14 @@
       display: flex; gap: 5rem; align-items: flex-start; flex-wrap: wrap;
     }
     .statement-label {
-      font-family: 'Space Mono', monospace; font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem;
       letter-spacing: 3px; text-transform: uppercase;
       color: var(--navy); padding-top: 0.5rem; min-width: 100px;
     }
     .statement-body { flex: 1; min-width: 260px; }
     .statement-body em { font-style: normal; color: var(--accent); }
     .statement-sub {
-      font-family: 'Syne', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       font-size: clamp(1.5rem, 3vw, 2.4rem);
       line-height: 1.6; letter-spacing: -0.3px;
       text-transform: none;
@@ -179,7 +179,7 @@
     }
     .marquee-track { display: inline-flex; animation: marquee 14s linear infinite; white-space: nowrap; }
     .m-item {
-      font-family: 'Anton', sans-serif; font-size: 2rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
       letter-spacing: 4px; text-transform: uppercase;
       color: var(--foam); padding: 0 3rem; opacity: 0.85;
     }
@@ -192,13 +192,13 @@
       display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
     .catalog-title {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3.5rem, 10vw, 7.5rem);
       letter-spacing: -1px; text-transform: uppercase; line-height: 1;
     }
     .catalog-title span { color: var(--accent); }
     .catalog-meta {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem;
       letter-spacing: 2px; color: rgba(240,235,224,0.35); text-transform: uppercase;
     }
     .products-grid {
@@ -240,7 +240,7 @@
     .product-badge {
       position: absolute; top: 1rem; right: 1rem;
       background: var(--accent); color: white;
-      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.58rem;
       letter-spacing: 2px; padding: 4px 10px; text-transform: uppercase; z-index: 3;
     }
     .product-always {
@@ -249,12 +249,12 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .product-always-name {
-      font-family: 'Anton', sans-serif; font-size: 1.1rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem;
       letter-spacing: 1px; text-transform: uppercase;
       text-shadow: 0 2px 14px rgba(0,0,0,0.9);
     }
     .product-always-price {
-      font-family: 'Space Mono', monospace; font-size: 0.85rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
       color: var(--accent); text-shadow: 0 2px 8px rgba(0,0,0,0.7);
     }
     .product-hover-info {
@@ -265,28 +265,28 @@
     }
     .product-card:hover .product-hover-info { transform: translateY(0); opacity: 1; }
     .product-cat {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
       letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 0.35rem;
     }
-    .product-name { font-family: 'Anton', sans-serif; font-size: 1.7rem; text-transform: uppercase; }
-    .product-price { font-family: 'Space Mono', monospace; font-size: 1rem; color: var(--accent); margin-top: 0.35rem; }
+    .product-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.7rem; text-transform: uppercase; }
+    .product-price { font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--accent); margin-top: 0.35rem; }
     /* MANIFESTO */
     .manifesto { background: var(--accent); padding: 6rem 2.5rem; }
     .manifesto-inner { max-width: 1100px; margin: 0 auto; }
     .manifesto-eye {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem;
       letter-spacing: 3px; color: rgba(255,255,255,0.55);
       text-transform: uppercase; margin-bottom: 2rem;
     }
     .manifesto-text {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.2rem, 6vw, 5.5rem);
       line-height: 1.05; text-transform: uppercase;
       letter-spacing: -1px; color: white;
     }
     .manifesto-text u { text-underline-offset: 8px; text-decoration-thickness: 4px; }
     .manifesto-tag {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem;
       letter-spacing: 3px; color: rgba(255,255,255,0.45);
       text-transform: uppercase; margin-top: 3rem;
     }
@@ -297,7 +297,7 @@
       display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
     }
     .pedido-left h2 {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 7vw, 6.5rem);
       text-transform: uppercase; line-height: 0.92; letter-spacing: -1px; margin-bottom: 1.5rem;
     }
@@ -307,7 +307,7 @@
       display: inline-flex; align-items: center; gap: 0.6rem;
       background: #25D366; color: white;
       padding: 0.9rem 2rem; text-decoration: none;
-      font-family: 'Anton', sans-serif; font-size: 0.95rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem;
       letter-spacing: 2px; text-transform: uppercase;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
       transition: filter 0.2s;
@@ -315,14 +315,14 @@
     .wa-btn:hover { filter: brightness(1.08); }
     .pedido-form { display: flex; flex-direction: column; gap: 1.25rem; }
     .f-label {
-      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.62rem;
       letter-spacing: 3px; text-transform: uppercase;
       color: rgba(10,10,10,0.4); display: block; margin-bottom: 0.35rem;
     }
     .f-field {
       width: 100%; background: transparent; border: none;
       border-bottom: 1.5px solid rgba(10,10,10,0.12);
-      padding: 0.65rem 0; font-family: 'Syne', sans-serif;
+      padding: 0.65rem 0; font-family: 'DM Sans', sans-serif;
       font-size: 1rem; color: var(--black); outline: none;
       transition: border-color 0.2s; appearance: none;
     }
@@ -332,7 +332,7 @@
     .submit-btn {
       background: var(--black); color: var(--white);
       border: none; padding: 1.1rem 2.5rem;
-      font-family: 'Anton', sans-serif; font-size: 1rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
       letter-spacing: 3px; text-transform: uppercase;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
       transition: background 0.2s; align-self: flex-start; margin-top: 0.5rem;
@@ -342,7 +342,7 @@
     .contact { background: var(--black); padding: 7rem 2.5rem; }
     .contact-inner { max-width: 1100px; margin: 0 auto; }
     .contact-title {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(4rem, 13vw, 11rem);
       text-transform: uppercase; letter-spacing: -2px; line-height: 0.88;
       color: var(--white); margin-bottom: 4rem;
@@ -356,20 +356,20 @@
     .contact-card:hover { background: var(--accent); }
     .c-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
     .c-label {
-      font-family: 'Space Mono', monospace; font-size: 0.62rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.62rem;
       letter-spacing: 3px; text-transform: uppercase; opacity: 0.45; margin-bottom: 0.4rem;
     }
-    .c-value { font-family: 'Anton', sans-serif; font-size: 1.4rem; letter-spacing: 1px; text-transform: uppercase; }
+    .c-value { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; text-transform: uppercase; }
     /* FOOTER */
     footer {
       background: var(--black); border-top: 1px solid rgba(240,235,224,0.07);
       padding: 2rem 2.5rem;
       display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;
     }
-    .f-logo { font-family: 'Anton', sans-serif; font-size: 1.4rem; letter-spacing: 4px; text-transform: uppercase; color: var(--white); }
-    .f-copy { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; color: rgba(240,235,224,0.28); text-transform: uppercase; }
+    .f-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 4px; text-transform: uppercase; color: var(--white); }
+    .f-copy { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 2px; color: rgba(240,235,224,0.28); text-transform: uppercase; }
     .f-links { display: flex; gap: 1.5rem; }
-    .f-links a { font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 2px; color: rgba(240,235,224,0.38); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+    .f-links a { font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 2px; color: rgba(240,235,224,0.38); text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
     .f-links a:hover { color: var(--accent); }
     /* REVEAL */
     .reveal { opacity: 0; transform: translateY(36px); filter: blur(8px); transition: opacity 0.8s cubic-bezier(0.25,0.46,0.45,0.94), transform 0.8s cubic-bezier(0.25,0.46,0.45,0.94), filter 0.8s cubic-bezier(0.25,0.46,0.45,0.94); }
@@ -386,8 +386,8 @@
     /* STATS */
     .contact-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-bottom: 4rem; }
     .stat-card { background: #111; padding: 2.5rem 2rem; }
-    .stat-number { font-family: 'Anton', sans-serif; font-size: clamp(3rem,8vw,6rem); letter-spacing: -1px; color: var(--accent); line-height: 1; }
-    .stat-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(240,235,224,0.4); margin-top: 0.5rem; }
+    .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem,8vw,6rem); letter-spacing: -1px; color: var(--accent); line-height: 1; }
+    .stat-label { font-family: 'DM Sans', sans-serif; font-size: 0.65rem; letter-spacing: 3px; text-transform: uppercase; color: rgba(240,235,224,0.4); margin-top: 0.5rem; }
     /* CATEGORIES */
     .cat-grid {
       max-width: 1100px; margin: 0 auto;
@@ -412,26 +412,26 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .cat-name {
-      font-family: 'Anton', sans-serif; font-size: 1.4rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
       letter-spacing: 1px; text-transform: uppercase;
       text-shadow: 0 2px 14px rgba(0,0,0,0.9);
     }
     .cat-arrow {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
       letter-spacing: 2px; color: var(--accent); text-transform: uppercase;
       opacity: 0; transition: opacity 0.3s; white-space: nowrap;
     }
     .cat-card:hover .cat-arrow { opacity: 1; }
     .back-btn {
       background: none; border: 1.5px solid rgba(240,235,224,0.2);
-      color: var(--white); font-family: 'Space Mono', monospace;
+      color: var(--white); font-family: 'DM Sans', sans-serif;
       font-size: 0.68rem; letter-spacing: 2px; text-transform: uppercase;
       padding: 0.7rem 1.5rem; margin-bottom: 2.5rem; display: inline-block;
       transition: border-color 0.2s, color 0.2s; cursor: none;
     }
     .back-btn:hover { border-color: var(--accent); color: var(--accent); }
     .cat-section-title {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.5rem, 7vw, 5rem);
       letter-spacing: -1px; text-transform: uppercase; line-height: 1;
       margin-bottom: 2rem;
@@ -439,7 +439,7 @@
     .cat-section-title span { color: var(--accent); }
     .empty-cat {
       text-align: center; padding: 5rem 2rem;
-      font-family: 'Space Mono', monospace; font-size: 0.75rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
       letter-spacing: 3px; text-transform: uppercase;
       color: rgba(240,235,224,0.25);
     }
@@ -463,7 +463,7 @@
       padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid rgba(240,235,224,0.08); flex-shrink: 0;
     }
-    .cart-title { font-family: 'Anton', sans-serif; font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; }
+    .cart-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; text-transform: uppercase; }
     .cart-close {
       background: none; border: none; color: var(--white);
       font-size: 1.4rem; cursor: none; opacity: 0.45; transition: opacity 0.2s;
@@ -471,7 +471,7 @@
     .cart-close:hover { opacity: 1; }
     .cart-items { flex: 1; overflow-y: auto; padding: 1rem 2rem; }
     .cart-empty-msg {
-      font-family: 'Space Mono', monospace; font-size: 0.72rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem;
       letter-spacing: 2px; text-transform: uppercase;
       color: rgba(240,235,224,0.22); text-align: center; padding: 4rem 0;
     }
@@ -482,10 +482,10 @@
     .cart-item-emoji { font-size: 2rem; width: 44px; text-align: center; flex-shrink: 0; }
     .cart-item-info { flex: 1; min-width: 0; }
     .cart-item-name {
-      font-family: 'Anton', sans-serif; font-size: 1rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
       letter-spacing: 1px; text-transform: uppercase;
     }
-    .cart-item-price { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--accent); margin-top: 0.15rem; }
+    .cart-item-price { font-family: 'DM Sans', sans-serif; font-size: 0.72rem; color: var(--accent); margin-top: 0.15rem; }
     .cart-item-qty { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
     .qty-btn {
       background: rgba(240,235,224,0.08); border: none; color: var(--white);
@@ -493,7 +493,7 @@
       justify-content: center; cursor: none; transition: background 0.2s;
     }
     .qty-btn:hover { background: var(--accent); }
-    .qty-num { font-family: 'Space Mono', monospace; font-size: 0.78rem; min-width: 18px; text-align: center; }
+    .qty-num { font-family: 'DM Sans', sans-serif; font-size: 0.78rem; min-width: 18px; text-align: center; }
     .cart-item-remove {
       background: none; border: none; color: rgba(240,235,224,0.25);
       font-size: 0.9rem; cursor: none; transition: color 0.2s; padding: 4px; flex-shrink: 0;
@@ -506,14 +506,14 @@
       display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.2rem;
     }
     .cart-total-label {
-      font-family: 'Space Mono', monospace; font-size: 0.68rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem;
       letter-spacing: 3px; text-transform: uppercase; color: rgba(240,235,224,0.4);
     }
-    .cart-total-amount { font-family: 'Anton', sans-serif; font-size: 1.8rem; color: var(--accent); }
+    .cart-total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--accent); }
     .wa-cart-btn {
       display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       background: #25D366; color: white; width: 100%; padding: 1rem; text-decoration: none;
-      font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
       transition: filter 0.2s;
     }
@@ -522,7 +522,7 @@
       display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       background: var(--accent); color: white; width: 100%; padding: 1rem;
       border: none; cursor: none;
-      font-family: 'Anton', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
       transition: filter 0.2s; margin-bottom: 0.6rem;
     }
@@ -530,13 +530,13 @@
     .mp-cart-btn:disabled { opacity: 0.4; pointer-events: none; }
     .mp-cart-btn.loading { opacity: 0.7; }
     .cart-btn-separator {
-      font-family: 'Space Mono', monospace; font-size: 0.55rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.55rem;
       letter-spacing: 2px; text-transform: uppercase;
       color: rgba(240,235,224,0.2); text-align: center;
       margin: 0.4rem 0;
     }
     .cart-badge {
-      background: var(--accent); color: white; font-family: 'Space Mono', monospace;
+      background: var(--accent); color: white; font-family: 'DM Sans', sans-serif;
       font-size: 0.5rem; min-width: 17px; height: 17px; border-radius: 50%;
       display: inline-flex; align-items: center; justify-content: center;
       margin-left: 3px; vertical-align: super; padding: 0 3px;
@@ -545,14 +545,14 @@
       background: none; border: none; color: var(--white);
       font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
       opacity: 0.7; cursor: none; transition: opacity 0.2s;
-      display: flex; align-items: center; gap: 0.2rem; font-family: 'Syne', sans-serif;
+      display: flex; align-items: center; gap: 0.2rem; font-family: 'DM Sans', sans-serif;
     }
     .nav-cart-btn:hover { opacity: 1; }
     .view-product-btn {
       margin-top: 0.6rem; background: transparent; color: var(--white);
       border: 1px solid rgba(240,235,224,0.35);
       width: 100%; padding: 0.55rem;
-      font-family: 'Anton', sans-serif; font-size: 0.8rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem;
       letter-spacing: 2px; text-transform: uppercase;
       cursor: none; transition: background 0.2s, border-color 0.2s;
     }
@@ -592,7 +592,7 @@
     }
     .modal-zoom-hint {
       position: absolute; bottom: 1rem; right: 1rem;
-      font-family: 'Space Mono', monospace; font-size: 0.52rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.52rem;
       letter-spacing: 2px; text-transform: uppercase;
       background: rgba(0,0,0,0.65); border: 1px solid rgba(255,255,255,0.12);
       color: rgba(255,255,255,0.6); padding: 0.38rem 0.7rem;
@@ -611,21 +611,21 @@
     }
     .modal-close:hover { opacity: 1; }
     .modal-info-cat {
-      font-family: 'Space Mono', monospace; font-size: 0.58rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.58rem;
       letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 0.25rem;
     }
-    .modal-info-name { font-family: 'Anton', sans-serif; font-size: 1.9rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 0.4rem; }
-    .modal-info-price { font-family: 'Space Mono', monospace; font-size: 0.95rem; color: var(--accent); margin-bottom: 1.6rem; }
+    .modal-info-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.9rem; letter-spacing: 1px; text-transform: uppercase; line-height: 1; margin-bottom: 0.4rem; }
+    .modal-info-price { font-family: 'DM Sans', sans-serif; font-size: 0.95rem; color: var(--accent); margin-bottom: 1.6rem; }
     .modal-section { margin-bottom: 1.3rem; padding: 0.3rem; border-radius: 2px; }
     .modal-section-label {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
       letter-spacing: 3px; text-transform: uppercase;
       color: rgba(240,235,224,0.4); margin-bottom: 0.65rem; display: block;
     }
     .modal-section-label strong { color: var(--white); font-weight: 400; }
     .option-btns { display: flex; flex-wrap: wrap; gap: 0.45rem; }
     .option-btn {
-      font-family: 'Space Mono', monospace; font-size: 0.63rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.63rem;
       letter-spacing: 1px; text-transform: uppercase;
       border: 1.5px solid rgba(240,235,224,0.18);
       background: transparent; color: var(--white);
@@ -635,7 +635,7 @@
     .option-btn.selected { border-color: var(--accent); background: var(--accent); }
     .payment-methods { display: flex; flex-direction: column; gap: 0.4rem; }
     .payment-method {
-      font-family: 'Space Mono', monospace; font-size: 0.62rem; letter-spacing: 0.5px;
+      font-family: 'DM Sans', sans-serif; font-size: 0.62rem; letter-spacing: 0.5px;
       border: 1px solid rgba(240,235,224,0.1); padding: 0.5rem 0.75rem;
       display: flex; align-items: center; gap: 0.55rem; color: rgba(240,235,224,0.8);
     }
@@ -647,11 +647,11 @@
       align-items: center; justify-content: center;
     }
     .qty-btn:hover { border-color: var(--accent); }
-    .modal-qty-display { font-family: 'Anton', sans-serif; font-size: 1.6rem; min-width: 28px; text-align: center; }
+    .modal-qty-display { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; min-width: 28px; text-align: center; }
     .modal-add-btn {
       background: var(--accent); color: white; border: none;
       width: 100%; padding: 1rem; margin-top: auto; padding-top: 1rem;
-      font-family: 'Anton', sans-serif; font-size: 1rem;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1rem;
       letter-spacing: 3px; text-transform: uppercase;
       cursor: none; transition: background 0.2s;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
@@ -673,13 +673,33 @@
       font-size: 1.5rem; cursor: none; opacity: 0.5; transition: opacity 0.2s;
     }
     .lightbox-close:hover { opacity: 1; }
+    /* MODAL CAROUSEL */
+    .modal-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(0,0,0,0.55); border: none; color: white;
+      width: 34px; height: 34px; font-size: 1.6rem; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      cursor: none; z-index: 6; transition: background 0.2s; user-select: none;
+    }
+    .modal-arrow:hover { background: var(--accent); }
+    .modal-arrow-prev { left: 0.5rem; }
+    .modal-arrow-next { right: 0.5rem; }
+    .modal-img-dots {
+      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 6px; z-index: 6;
+    }
+    .modal-img-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: rgba(255,255,255,0.3); cursor: none; transition: background 0.2s;
+    }
+    .modal-img-dot.active { background: var(--accent); }
     @media (max-width: 640px) {
       .modal-layout { grid-template-columns: 1fr; }
       .modal-image-wrap { min-height: 260px; }
       .modal-info-col { padding: 1.4rem 1.2rem; max-height: 60vh; }
     }
     .cart-item-variant {
-      font-family: 'Space Mono', monospace; font-size: 0.6rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
       letter-spacing: 1px; color: rgba(240,235,224,0.45); margin-top: 0.1rem;
     }
     /* HAMBURGER / MOBILE NAV */
@@ -707,14 +727,14 @@
     }
     .mobile-menu.open { opacity: 1; pointer-events: all; }
     .mobile-menu a {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.5rem, 12vw, 4.5rem);
       letter-spacing: 3px; text-transform: uppercase;
       color: var(--white); text-decoration: none; transition: color 0.2s;
     }
     .mobile-menu a:hover { color: var(--accent); }
     .mobile-menu-btn {
-      font-family: 'Anton', sans-serif;
+      font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.5rem, 12vw, 4.5rem);
       letter-spacing: 3px; text-transform: uppercase;
       color: var(--white); background: none; border: none;
@@ -837,19 +857,21 @@
 <div class="marquee-wrap">
   <div class="marquee-track">
     <span class="m-item">Buzos</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Camperas</span><span class="m-item m-sep">✦</span>
     <span class="m-item">Remeras</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Joggings &amp; Jeans</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Gorras</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Accesorios</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Cinturones</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Abrigos</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Pantalones</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Camperas</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Camisacos</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Jeans</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Joggings</span><span class="m-item m-sep">✦</span>
     <span class="m-item">Buzos</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Camperas</span><span class="m-item m-sep">✦</span>
     <span class="m-item">Remeras</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Joggings &amp; Jeans</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Gorras</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Accesorios</span><span class="m-item m-sep">✦</span>
-    <span class="m-item">Cinturones</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Abrigos</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Pantalones</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Camperas</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Camisacos</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Jeans</span><span class="m-item m-sep">✦</span>
+    <span class="m-item">Joggings</span><span class="m-item m-sep">✦</span>
   </div>
 </div>
 
@@ -870,45 +892,24 @@
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
-      <div class="cat-card reveal d1" data-cat="camperas">
-        <div class="cat-emoji-wrap" style="background:#0d1a0d;">🧣</div>
-        <div class="cat-info">
-          <span class="cat-name">Camperas</span>
-          <span class="cat-arrow">Ver todo →</span>
-        </div>
-      </div>
-      <div class="cat-card reveal d2" data-cat="remeras">
+      <div class="cat-card reveal d1" data-cat="remeras">
         <div class="cat-emoji-wrap" style="background:#1a0a06;">👕</div>
         <div class="cat-info">
           <span class="cat-name">Remeras</span>
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
-      <div class="cat-card reveal d3" data-cat="joggings">
+      <div class="cat-card reveal d2" data-cat="abrigos">
+        <div class="cat-emoji-wrap" style="background:#0d1a0d;">🧣</div>
+        <div class="cat-info">
+          <span class="cat-name">Abrigos</span>
+          <span class="cat-arrow">Ver todo →</span>
+        </div>
+      </div>
+      <div class="cat-card reveal d3" data-cat="pantalones">
         <div class="cat-emoji-wrap" style="background:#0d0d1a;">👖</div>
         <div class="cat-info">
-          <span class="cat-name">Joggings y Jeans</span>
-          <span class="cat-arrow">Ver todo →</span>
-        </div>
-      </div>
-      <div class="cat-card reveal" data-cat="gorras">
-        <div class="cat-emoji-wrap" style="background:#1a1200;">🧢</div>
-        <div class="cat-info">
-          <span class="cat-name">Gorras</span>
-          <span class="cat-arrow">Ver todo →</span>
-        </div>
-      </div>
-      <div class="cat-card reveal d1" data-cat="accesorios">
-        <div class="cat-emoji-wrap" style="background:#111;">⌚</div>
-        <div class="cat-info">
-          <span class="cat-name">Accesorios</span>
-          <span class="cat-arrow">Ver todo →</span>
-        </div>
-      </div>
-      <div class="cat-card reveal d2" data-cat="cinturones">
-        <div class="cat-emoji-wrap" style="background:#1a0d00;">🔗</div>
-        <div class="cat-info">
-          <span class="cat-name">Cinturones</span>
+          <span class="cat-name">Pantalones</span>
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
@@ -1009,7 +1010,7 @@
       </div>
       <div class="modal-section">
         <span class="modal-section-label">Métodos de pago</span>
-        <div class="payment-methods">
+        <div class="payment-methods" id="paymentMethodsList">
           <div class="payment-method">💵 Efectivo</div>
           <div class="payment-method">📲 Transferencia bancaria</div>
           <div class="payment-method">💳 Mercado Pago · 3 cuotas sin interés</div>
@@ -1045,13 +1046,16 @@
     <div class="cart-empty-msg">Tu carrito está vacío</div>
   </div>
   <div class="cart-footer">
-    <div class="cart-total">
-      <span class="cart-total-label">Total estimado</span>
-      <span class="cart-total-amount" id="cartTotal">$0</span>
+    <div class="cart-total" style="margin-bottom:0.3rem;">
+      <span class="cart-total-label">Transferencia</span>
+      <span class="cart-total-amount" id="cartTotalEf">$0</span>
     </div>
-    <button class="mp-cart-btn" id="mpCartBtn" disabled>💳 Pagar con Mercado Pago</button>
-    <div class="cart-btn-separator">— o también —</div>
-    <a href="#" class="wa-cart-btn" id="waCartBtn" target="_blank" rel="noopener noreferrer" style="opacity:0.4;pointer-events:none;">💬 Coordinar por WhatsApp</a>
+    <div class="cart-total">
+      <span class="cart-total-label">Tarjeta</span>
+      <span class="cart-total-amount" id="cartTotalTd">$0</span>
+    </div>
+    <button class="mp-cart-btn" id="mpCartBtn" disabled>💳 Tarjeta de crédito/débito</button>
+    <a href="#" class="wa-cart-btn" id="transfCartBtn" target="_blank" rel="noopener noreferrer" style="opacity:0.4;pointer-events:none;">💸 Transferencia</a>
   </div>
 </div>
 
@@ -1075,40 +1079,180 @@
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
   // ── CATALOG DATA ──────────────────────────────────────────────
-  const SZ = ['XS','S','M','L','XL','XXL','3XL'];
+  // colorVariants: cada color tiene su propia imagen y talles disponibles
   const catalogData = {
     buzos: { name:'Buzos', products:[
-      { name:'Buzo Cardinal',  price:'Consultar', badge:'NUEVO', img:'imagenes/Buzo Cardinal (adelante).jpeg', imgBack:'imagenes/Buzo Cardinal (atras).jpeg', cat:'Buzos', colors:['Negro','Gris','Azul Navy'], sizes:SZ },
-      { name:'Buzo Lisos',     price:'Consultar', img:'imagenes/Buzo lisos.jpeg',   cat:'Buzos', colors:['Negro','Gris','Blanco'], sizes:SZ },
-      { name:'Buzo Tejido',    price:'Consultar', img:'imagenes/Buzo Tejido..jpeg', cat:'Buzos', colors:['Negro','Beige'],         sizes:SZ }
-    ]},
-    camperas: { name:'Camperas', products:[
-      { name:'Campera de Jean',     price:'Consultar', img:'imagenes/Campera de jean.jpeg',     cat:'Camperas', colors:['Azul'],  sizes:SZ },
-      { name:'Campera EternityKNB', price:'Consultar', img:'imagenes/Campera EternityKNB.jpeg', cat:'Camperas', colors:['Negro'], sizes:SZ },
-      { name:'Campera Negra',       price:'Consultar', img:'imagenes/Campera negra.jpeg',        cat:'Camperas', colors:['Negro'], sizes:SZ }
+      { name:'Buzo sin capucha', price:'$32.000 ef · $38.000 td',
+        img:'imagenes/Buzo sin capucha NEGRO (Talle S).jpeg',
+        cat:'Buzos',
+        colorVariants:[
+          { color:'Negro',     images:['imagenes/Buzo sin capucha NEGRO (Talle S).jpeg','imagenes/Buzo sin capucha Negro (XXL, foto 1).jpeg','imagenes/Buzo sin capucha Negro (XXL, foto 2).jpeg'], sizes:['S','XXL'] },
+          { color:'Bordo',     images:['imagenes/Buzo sin capucha Bordo (Talle M).jpeg','imagenes/Buzo sin capucha Bordo (Talle M, foto 2).jpeg','imagenes/Buzo sin capucha Bordo (XXXL, foto 1).jpeg','imagenes/Buzo sin capucha Bordo (XXXL, foto 2).jpeg'], sizes:['M','XXXL'] },
+          { color:'Beige',     images:['imagenes/Buzo sin capucha Beige (Talle L, foto 1).jpeg','imagenes/Buzo sin capucha Beige (Talle L, foto 2).jpeg','imagenes/Buzo sin capucha Beige (XXXL, foto 1).jpeg','imagenes/Buzo sin capucha Beige (XXXL, foto 2).jpeg'], sizes:['L','XXXL'] },
+          { color:'Gris Topo', img:'imagenes/Buzo sin capucha Gris Topo(Talle XL).jpeg', sizes:['XL'] },
+          { color:'Crudo',     images:['imagenes/Buzo sin capucha Crudo (XXL, foto 1).jpeg','imagenes/Buzo sin capucha Crudo (XXL, foto 2).jpeg'], sizes:['XXL'] },
+        ] },
+      { name:'Buzo con capucha', price:'$42.000 ef · $48.000 td',
+        img:'imagenes/Buzo con capucha Verde (M, foto 1).jpeg',
+        cat:'Buzos',
+        colorVariants:[
+          { color:'Verde',     images:['imagenes/Buzo con capucha Verde (M, foto 1).jpeg','imagenes/Buzo con capucha Verde (M, foto 2).jpeg'], sizes:['M'] },
+          { color:'Bordo',     img:'imagenes/Buzo con capucha Bordo (M).jpeg', sizes:['M'] },
+          { color:'Gris Topo', images:['imagenes/Buzo con capucha Gris topo (L, foto 1).jpeg','imagenes/Buzo con capucha Gris tipo (L, foto 2).jpeg','imagenes/Buzo con capucha Gris topo (XXL, foto 1).jpeg','imagenes/Buzo con capucha Gris topo (XXL, foto 2).jpeg'], sizes:['L','XXL'] },
+          { color:'Negro',     images:['imagenes/Buzo con capucha Negro (L, foto 1).jpeg','imagenes/Buzo con capucha Negro (L, foto 2).jpeg','imagenes/Buzo con capucha Negro (XL, foto 1).jpeg','imagenes/Buzo con capucha Negro (XL, foto 2).jpeg'], sizes:['L','XL'] },
+          { color:'Marrón',    images:['imagenes/Buzo con capucha Marron (XL, foto 1).jpeg','imagenes/Buzo con capucha Marron (XL, foto 2).jpeg'], sizes:['XL'] },
+        ] },
+      { name:'Buzo Cardinal', price:'$48.000 ef · $52.000 td', badge:'NUEVO',
+        img:'imagenes/Buzo Cardinal (adelante).jpeg',
+        imgBack:'imagenes/Buzo Cardinal (atras).jpeg',
+        cat:'Buzos', colors:['Bordo'],
+        sizes:['L'] },
+      { name:'Buzo Tejido', price:'$45.000',
+        img:'imagenes/Buzo Tejido..jpeg',
+        cat:'Buzos', colors:['Caqui'],
+        sizes:['L'] }
     ]},
     remeras: { name:'Remeras', products:[
-      { name:'Remera BhT',       price:'Consultar', img:'imagenes/Remera BhT.jpeg',                    cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Everything',price:'Consultar', img:'imagenes/Remera Everything (adelante).jpeg',  imgBack:'imagenes/Remera Everything (atras).jpeg', cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Flores',    price:'Consultar', img:'imagenes/Remera Flores (adelante).jpeg',      imgBack:'imagenes/Remera Flores (atras).jpeg',     cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Michigan',  price:'Consultar', img:'imagenes/Remera Michigan.jpeg',                cat:'Remeras', colors:['Negro','Gris'],   sizes:SZ },
-      { name:'Remera MyB',       price:'Consultar', img:'imagenes/Remera MyB (adelante).jpeg',         imgBack:'imagenes/Remera MyB (atras).jpeg',        cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Ruk',       price:'Consultar', img:'imagenes/Remera Ruk (adelante).jpeg',         imgBack:'imagenes/Remera Ruk (atras).jpeg',        cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Sensory',   price:'Consultar', img:'imagenes/Remera sensory.jpeg',                cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Remera Talk To Me',price:'Consultar', img:'imagenes/Remera Talk To Me.jpeg',             cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ },
-      { name:'Chomba SNTS',      price:'Consultar', img:'imagenes/Chomba SNTS.jpeg',                   cat:'Remeras', colors:['Negro','Blanco'], sizes:SZ }
+      { name:'Remera BhT', price:'$24.000 ef · $28.000 td',
+        img:'imagenes/Remera BhT.jpeg',
+        cat:'Remeras', colors:['Beige'],
+        sizes:['S','L'] },
+      { name:'Remera Everything', price:'$18.000 ef · $22.000 td',
+        img:'imagenes/Remera Everything (adelante).jpeg',
+        imgBack:'imagenes/Remera Everything (atras).jpeg',
+        cat:'Remeras', colors:['Negro'],
+        sizes:['S','M','L'] },
+      { name:'Remera Flores', price:'$29.000 ef · $33.000 td',
+        img:'imagenes/Remera Flores (adelante).jpeg',
+        imgBack:'imagenes/Remera Flores (atras).jpeg',
+        cat:'Remeras', colors:['Gris'],
+        sizes:['L','XXL'] },
+      { name:'Remera Heights', price:'$22.000 ef · $26.000 td',
+        img:'imagenes/Remera Heights (M, foto 1).jpeg',
+        imgBack:'imagenes/Remera Heights (M, foto 2).jpeg',
+        cat:'Remeras', colors:['Marrón'],
+        sizes:['M'] },
+      { name:'Remera Michigan', price:'$20.000 ef · $24.000 td',
+        img:'imagenes/Remera Michigan.jpeg',
+        cat:'Remeras', colors:['Negro'],
+        sizes:['L'] },
+      { name:'Remera MyB', price:'$29.000 ef · $33.000 td',
+        img:'imagenes/Remera MyB (adelante).jpeg',
+        imgBack:'imagenes/Remera MyB (atras).jpeg',
+        cat:'Remeras', colors:['Marrón'],
+        sizes:['L'] },
+      { name:'Remera Ruk', price:'$29.000 ef · $33.000 td',
+        img:'imagenes/Remera Ruk (adelante).jpeg',
+        imgBack:'imagenes/Remera Ruk (atras).jpeg',
+        cat:'Remeras', colors:['Negro'],
+        sizes:['M'] },
+      { name:'Remera Sensory', price:'$28.000 ef · $32.000 td',
+        img:'imagenes/Remera sensory.jpeg',
+        cat:'Remeras', colors:['Gris'],
+        sizes:['S','M'] },
+      { name:'Remera Talk To Me', price:'$18.000 ef · $22.000 td',
+        img:'imagenes/Remera Talk To Me.jpeg',
+        cat:'Remeras',
+        colorVariants:[
+          { color:'Negro', img:'imagenes/Remera Talk To Me.jpeg', sizes:['S','M','L'] },
+          { color:'Verde', img:'imagenes/Remera Talk To Me.jpeg', sizes:['L'] },
+        ] },
+      { name:'Remera World', price:'$16.000 ef · $20.000 td',
+        img:'imagenes/Remera World (S, M y L en blanco, foto 1).jpeg',
+        cat:'Remeras',
+        colorVariants:[
+          { color:'Blanco', img:'imagenes/Remera World (S, M y L en blanco, foto 1).jpeg', imgBack:'imagenes/Remera World (S, M y L en blanco, foto 2).jpeg', sizes:['S','M','L'] },
+          { color:'Beige',  img:'imagenes/Remera World (S y L, en beige, foto 1).jpeg',    imgBack:'imagenes/Remera World (S y L, en beige, foto 2).jpeg',    sizes:['S','L'] },
+        ] },
+      { name:'Chomba SNTS', price:'$38.000 ef · $44.000 td',
+        img:'imagenes/Chomba SNTS.jpeg',
+        cat:'Remeras', colors:['Negro'],
+        sizes:['M','XL'] }
     ]},
-    joggings: { name:'Joggings y Jeans', products:[
-      { name:'Jean Baggy Claro', price:'Consultar', img:'imagenes/Jean Baggy Claro.jpeg', cat:'Joggings y Jeans', colors:['Claro'],        sizes:SZ },
-      { name:'Jean Baggy Negro', price:'Consultar', img:'imagenes/Jean Baggy Negro.jpeg', cat:'Joggings y Jeans', colors:['Negro'],        sizes:SZ },
-      { name:'Jean con Puño',    price:'Consultar', img:'imagenes/Jean con puño.jpeg',    cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ },
-      { name:'Jean Malboro',     price:'Consultar', img:'imagenes/Jean Malboro (adelante).jpeg', imgBack:'imagenes/Jean Malboro (atras).jpeg', cat:'Joggings y Jeans', colors:['Negro'], sizes:SZ },
-      { name:'Jean Recto',       price:'Consultar', img:'imagenes/Jean recto.jpeg',       cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ },
-      { name:'Jogging Recto',    price:'Consultar', img:'imagenes/Jogging recto.jpeg',    cat:'Joggings y Jeans', colors:['Negro','Gris'], sizes:SZ }
+    abrigos: { name:'Abrigos', products:[
+      { name:'Campera de Jean', price:'$41.000 ef · $47.000 td',
+        img:'imagenes/Campera de jean.jpeg',
+        cat:'Abrigos', colors:['Azul'],
+        sizes:['L','XXL'] },
+      { name:'Campera EternityKNB', price:'$70.000 ef · $77.000 td',
+        img:'imagenes/Campera EternityKNB.jpeg',
+        cat:'Abrigos',
+        colorVariants:[
+          { color:'Negro',  img:'imagenes/Campera EternityKNB.jpeg', sizes:['L','XXL'] },
+          { color:'Marrón', img:'imagenes/Campera EternityKNB.jpeg', sizes:['L'] },
+          { color:'Verde',  img:'imagenes/Campera EternityKNB.jpeg', sizes:['XXL'] },
+        ] },
+      { name:'Campera Negra', price:'$62.000 ef · $72.000 td',
+        img:'imagenes/Campera negra.jpeg',
+        cat:'Abrigos', colors:['Negro'],
+        sizes:['L'] },
+      { name:'Campera Rompeviento Ruk', price:'$45.000 ef · $52.000 td',
+        img:'imagenes/Campera rompeviento Ruk.jpeg',
+        imgBack:'imagenes/Campera rompeviento Ruk (detalles).jpeg',
+        cat:'Abrigos', colors:['Negro'],
+        sizes:['S'] },
+      { name:'Campera Universitaria', price:'$48.000 ef · $54.000 td',
+        img:'imagenes/Campera Universitaria (M y L, foto 1).jpeg',
+        imgBack:'imagenes/Campera Universitaria (M y L, foto 2).jpeg',
+        cat:'Abrigos', colors:['Verde','Crudo'],
+        sizes:['M','L'] },
+      { name:'Campera Inflable Verde', price:'$60.000 ef · $70.000 td',
+        img:'imagenes/Campera Inflable verde (L y XL, foto 1).jpeg',
+        images:['imagenes/Campera Inflable verde (L y XL, foto 1).jpeg','imagenes/Campera Inflable verde (L y XL, foto 2).jpeg','imagenes/Campera Inflable verde (L y XL, foto 3).jpeg'],
+        cat:'Abrigos', colors:['Verde/Negro'],
+        sizes:['L','XL'] },
+      { name:'Camisaco', price:'$40.000 ef · $48.000 td',
+        img:'imagenes/Camisaco Rojo.jpeg',
+        cat:'Abrigos',
+        colorVariants:[
+          { color:'Rojo',   img:'imagenes/Camisaco Rojo.jpeg',   sizes:['L'] },
+          { color:'Beige',  img:'imagenes/Camisaco Beige.jpeg',  sizes:['L'] },
+          { color:'Verde',  img:'imagenes/Camisaco Verde.jpeg',  sizes:['M'] },
+          { color:'Marrón', img:'imagenes/Camisaco Marron.jpeg', sizes:['M'] },
+        ] }
     ]},
-    gorras:     { name:'Gorras',     products:[] },
-    accesorios: { name:'Accesorios', products:[] },
-    cinturones: { name:'Cinturones', products:[] }
+    pantalones: { name:'Pantalones', products:[
+      { name:'Jean Baggy', price:'$42.000 ef · $48.000 td',
+        img:'imagenes/Jean Baggy Claro.jpeg',
+        cat:'Pantalones',
+        colorVariants:[
+          { color:'Claro', img:'imagenes/Jean Baggy Claro.jpeg', sizes:['38','40','42','44','46','48'] },
+          { color:'Negro', img:'imagenes/Jean Baggy Negro.jpeg', sizes:['38','40','42','44','46','48'] },
+        ] },
+      { name:'Jean con Puño', price:'$33.000 ef · $39.000 td',
+        img:'imagenes/Jean con puño.jpeg',
+        cat:'Pantalones', colors:['Claro','Negro'],
+        sizes:['38','40','42','44','46','48'] },
+      { name:'Jean Malboro', price:'$42.000 ef · $48.000 td',
+        img:'imagenes/Jean Malboro (adelante).jpeg',
+        imgBack:'imagenes/Jean Malboro (atras).jpeg',
+        cat:'Pantalones', colors:['Negro'],
+        sizes:['38','40','42','44','46','48'] },
+      { name:'Jean Recto', price:'$34.000 ef · $40.000 td',
+        img:'imagenes/Jean recto.jpeg',
+        cat:'Pantalones', colors:['Azul','Negro','Claro'],
+        sizes:['38','40','42','44','46','48'] },
+      { name:'Joggings Baggy', price:'$30.000 ef · $33.000 td',
+        img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg',
+        images:['imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg','imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 2).jpeg','imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 3).jpeg'],
+        cat:'Pantalones',
+        colorVariants:[
+          { color:'Negro',  img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg', sizes:['38','48'] },
+          { color:'Verde',  img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg', sizes:['39'] },
+          { color:'Gris',   img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg', sizes:['39'] },
+          { color:'Blanco', img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg', sizes:['46'] },
+          { color:'Azul',   img:'imagenes/Joggings Baggy (38 y 48 negro, 39, en verde y gris, 46 en blanco y azul, foto 1).jpeg', sizes:['46'] },
+        ] },
+      { name:'Jogging Recto', price:'$30.000 ef · $33.000 td',
+        img:'imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 1).jpeg',
+        images:['imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 1).jpeg','imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 2).jpeg'],
+        cat:'Pantalones',
+        colorVariants:[
+          { color:'Blanco',      img:'imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 1).jpeg', sizes:['40'] },
+          { color:'Azul Oscuro', img:'imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 1).jpeg', sizes:['40'] },
+          { color:'Marrón',      img:'imagenes/Jogging recto (40 en blanco y azul oscuro, 42 en marron, foto 1).jpeg', sizes:['42'] },
+        ] }
+    ]}
   };
 
   function renderMedia(p) {
@@ -1147,12 +1291,10 @@
           ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
           <div class="product-always">
             <span class="product-always-name">${p.name}</span>
-            <span class="product-always-price">${p.price}</span>
           </div>
           <div class="product-hover-info">
             <div class="product-cat">${p.cat}</div>
             <div class="product-name">${p.name}</div>
-            <div class="product-price">${p.price}</div>
             <button class="view-product-btn">Ver detalles →</button>
           </div>
         </div>`).join('');
@@ -1170,7 +1312,7 @@
   }
 
   // ── PRODUCT MODAL ─────────────────────────────────────────────
-  let modalProduct = null, modalSelectedColor = null, modalSelectedSize = null, modalQty = 1;
+  let modalProduct = null, modalSelectedColor = null, modalSelectedSize = null, modalQty = 1, modalImgList = [], modalImgIndex = 0;
 
   function openLightbox(src, alt) {
     document.getElementById('lightboxImg').src = src;
@@ -1186,21 +1328,91 @@
         e.target === document.getElementById('lightboxImg')) closeLightbox();
   });
 
+  function getImages(product, variant) {
+    if (variant) {
+      if (variant.images) return variant.images;
+      if (product.images) return product.images;
+      return [variant.img, variant.imgBack].filter(Boolean);
+    }
+    return product.images || [product.img, product.imgBack].filter(Boolean);
+  }
+
+  function setModalCarousel(images, name) {
+    modalImgList  = images;
+    modalImgIndex = 0;
+    renderModalCarouselUI(name);
+  }
+
+  function navigateModal(dir) {
+    modalImgIndex = (modalImgIndex + dir + modalImgList.length) % modalImgList.length;
+    renderModalCarouselUI(modalProduct.name);
+  }
+
+  function renderModalCarouselUI(name) {
+    const wrap = document.getElementById('modalImageWrap');
+    const hint = wrap.querySelector('.modal-zoom-hint');
+    Array.from(wrap.children).forEach(el => { if (!el.classList.contains('modal-zoom-hint')) el.remove(); });
+    const src = modalImgList[modalImgIndex];
+    const img = document.createElement('img');
+    img.src = src; img.alt = name;
+    wrap.insertBefore(img, hint);
+    wrap.style.cursor = 'zoom-in';
+    wrap.onclick = e => { if (!e.target.closest('.modal-arrow, .modal-img-dots')) openLightbox(src, name); };
+    hint.style.display = '';
+    if (modalImgList.length > 1) {
+      const prev = document.createElement('button');
+      prev.className = 'modal-arrow modal-arrow-prev';
+      prev.innerHTML = '&#8249;';
+      prev.onclick = e => { e.stopPropagation(); navigateModal(-1); };
+      const next = document.createElement('button');
+      next.className = 'modal-arrow modal-arrow-next';
+      next.innerHTML = '&#8250;';
+      next.onclick = e => { e.stopPropagation(); navigateModal(1); };
+      const dots = document.createElement('div');
+      dots.className = 'modal-img-dots';
+      modalImgList.forEach((_, i) => {
+        const d = document.createElement('div');
+        d.className = 'modal-img-dot' + (i === modalImgIndex ? ' active' : '');
+        d.onclick = e => { e.stopPropagation(); modalImgIndex = i; renderModalCarouselUI(name); };
+        dots.appendChild(d);
+      });
+      wrap.appendChild(prev);
+      wrap.appendChild(next);
+      wrap.appendChild(dots);
+    }
+  }
+
+  function renderModalSizes(sizes) {
+    const sizeSection = document.getElementById('sizeSection');
+    const sizeBtns    = document.getElementById('sizeBtns');
+    modalSelectedSize = null;
+    document.getElementById('selectedSizeLabel').textContent = 'Elegí';
+    sizeSection.style.outline = '';
+    sizeBtns.innerHTML = sizes.map(s =>
+      `<button class="option-btn" data-val="${s}">${s}</button>`).join('');
+    sizeBtns.querySelectorAll('.option-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeBtns.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        modalSelectedSize = btn.dataset.val;
+        document.getElementById('selectedSizeLabel').textContent = modalSelectedSize;
+        sizeSection.style.outline = '';
+      });
+    });
+  }
+
   function openProductModal(product) {
     modalProduct = product;
     modalSelectedColor = null; modalSelectedSize = null; modalQty = 1;
-    const wrap = document.getElementById('modalImageWrap');
-    const hint = wrap.querySelector('.modal-zoom-hint');
-    const existing = wrap.querySelector('img, .modal-image-emoji');
-    if (existing) existing.remove();
-    if (product.img) {
-      const img = document.createElement('img');
-      img.src = product.img; img.alt = product.name;
-      wrap.insertBefore(img, hint);
-      wrap.style.cursor = 'zoom-in';
-      wrap.onclick = () => openLightbox(product.img, product.name);
-      hint.style.display = '';
+
+    const defaultImages = getImages(product, product.colorVariants ? product.colorVariants[0] : null);
+    if (defaultImages.length > 0) {
+      setModalCarousel(defaultImages, product.name);
     } else {
+      const wrap = document.getElementById('modalImageWrap');
+      const hint = wrap.querySelector('.modal-zoom-hint');
+      const old  = wrap.querySelector('img, .modal-image-emoji');
+      if (old) old.remove();
       const emo = document.createElement('div');
       emo.className = 'modal-image-emoji';
       emo.textContent = product.emoji || '👕';
@@ -1209,18 +1421,37 @@
       wrap.onclick = null;
       hint.style.display = 'none';
     }
-    document.getElementById('modalCat').textContent   = product.cat;
-    document.getElementById('modalName').textContent  = product.name;
-    document.getElementById('modalPrice').textContent = product.price;
+
+    document.getElementById('modalCat').textContent    = product.cat;
+    document.getElementById('modalName').textContent   = product.name;
     document.getElementById('modalQtyNum').textContent = '1';
+
+    const priceMatches = product.price.match(/\$[\d.]+/g);
+    const pmList = document.getElementById('paymentMethodsList');
+    if (priceMatches && priceMatches.length >= 2) {
+      document.getElementById('modalPrice').textContent = '';
+      pmList.innerHTML = `
+        <div class="payment-method">💵 Efectivo / Transferencia: <strong>${priceMatches[0]}</strong></div>
+        <div class="payment-method">💳 Tarjeta de crédito/débito: <strong>${priceMatches[1]}</strong></div>`;
+    } else {
+      document.getElementById('modalPrice').textContent = product.price;
+      pmList.innerHTML = `
+        <div class="payment-method">💵 Efectivo</div>
+        <div class="payment-method">📲 Transferencia bancaria</div>
+        <div class="payment-method">💳 Mercado Pago · 3 cuotas sin interés</div>`;
+    }
     document.getElementById('selectedColorLabel').textContent = 'Elegí';
     document.getElementById('selectedSizeLabel').textContent  = 'Elegí';
 
     const colorSection = document.getElementById('colorSection');
     const colorBtns    = document.getElementById('colorBtns');
-    if (product.colors && product.colors.length > 0) {
+    const colors = product.colorVariants
+      ? product.colorVariants.map(v => v.color)
+      : (product.colors || []);
+
+    if (colors.length > 0) {
       colorSection.style.display = 'block'; colorSection.style.outline = '';
-      colorBtns.innerHTML = product.colors.map(c =>
+      colorBtns.innerHTML = colors.map(c =>
         `<button class="option-btn" data-val="${c}">${c}</button>`).join('');
       colorBtns.querySelectorAll('.option-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -1229,25 +1460,27 @@
           modalSelectedColor = btn.dataset.val;
           document.getElementById('selectedColorLabel').textContent = modalSelectedColor;
           colorSection.style.outline = '';
+
+          if (product.colorVariants) {
+            const variant = product.colorVariants.find(v => v.color === btn.dataset.val);
+            if (variant) {
+              setModalCarousel(getImages(product, variant), product.name);
+              document.getElementById('sizeSection').style.display = 'block';
+              renderModalSizes(variant.sizes);
+            }
+          }
         });
       });
     } else { colorSection.style.display = 'none'; }
 
     const sizeSection = document.getElementById('sizeSection');
     const sizeBtns    = document.getElementById('sizeBtns');
-    if (product.sizes && product.sizes.length > 0) {
+    if (product.colorVariants) {
       sizeSection.style.display = 'block'; sizeSection.style.outline = '';
-      sizeBtns.innerHTML = product.sizes.map(s =>
-        `<button class="option-btn" data-val="${s}">${s}</button>`).join('');
-      sizeBtns.querySelectorAll('.option-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          sizeBtns.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
-          btn.classList.add('selected');
-          modalSelectedSize = btn.dataset.val;
-          document.getElementById('selectedSizeLabel').textContent = modalSelectedSize;
-          sizeSection.style.outline = '';
-        });
-      });
+      sizeBtns.innerHTML = '<span style="font-family:\'DM Sans\',sans-serif;font-size:0.58rem;letter-spacing:1px;color:rgba(240,235,224,0.35);text-transform:uppercase;">← Elegí un color primero</span>';
+    } else if (product.sizes && product.sizes.length > 0) {
+      sizeSection.style.display = 'block'; sizeSection.style.outline = '';
+      renderModalSizes(product.sizes);
     } else { sizeSection.style.display = 'none'; }
 
     document.getElementById('productModal').classList.add('open');
@@ -1269,8 +1502,8 @@
   });
   document.getElementById('modalAddBtn').addEventListener('click', () => {
     if (!modalProduct) return;
-    const hasColors = modalProduct.colors && modalProduct.colors.length > 0;
-    const hasSizes  = modalProduct.sizes  && modalProduct.sizes.length  > 0;
+    const hasColors = !!(modalProduct.colorVariants?.length || modalProduct.colors?.length);
+    const hasSizes  = !!(modalProduct.colorVariants       || modalProduct.sizes?.length);
     let ok = true;
     if (hasColors && !modalSelectedColor) {
       document.getElementById('colorSection').style.outline = '1px solid var(--accent)'; ok = false;
@@ -1326,21 +1559,23 @@
   }
 
   function renderCart() {
-    const container = document.getElementById('cartItems');
-    const totalEl   = document.getElementById('cartTotal');
-    const waBtn     = document.getElementById('waCartBtn');
-    const mpBtn     = document.getElementById('mpCartBtn');
+    const container  = document.getElementById('cartItems');
+    const efTotalEl  = document.getElementById('cartTotalEf');
+    const tdTotalEl  = document.getElementById('cartTotalTd');
+    const transfBtn  = document.getElementById('transfCartBtn');
+    const mpBtn      = document.getElementById('mpCartBtn');
 
     if (cart.length === 0) {
       container.innerHTML = '<div class="cart-empty-msg">Tu carrito está vacío</div>';
-      totalEl.textContent = '$0';
-      waBtn.href = 'javascript:void(0)';
-      waBtn.style.opacity = '0.4'; waBtn.style.pointerEvents = 'none';
-      mpBtn.disabled = true; mpBtn.textContent = '💳 Pagar con Mercado Pago';
+      efTotalEl.textContent = '$0';
+      tdTotalEl.textContent = '$0';
+      transfBtn.href = 'javascript:void(0)';
+      transfBtn.style.opacity = '0.4'; transfBtn.style.pointerEvents = 'none';
+      mpBtn.disabled = true; mpBtn.textContent = '💳 Tarjeta de crédito/débito';
       return;
     }
 
-    waBtn.style.opacity = ''; waBtn.style.pointerEvents = '';
+    transfBtn.style.opacity = ''; transfBtn.style.pointerEvents = '';
     mpBtn.disabled = false;
 
     container.innerHTML = cart.map(item => {
@@ -1369,19 +1604,29 @@
       btn.addEventListener('click', () => removeFromCart(btn.dataset.id));
     });
 
-    const total = cart.reduce((sum, i) => {
-      const precio = parseInt(i.price.replace(/[^0-9]/g, '')) || 0;
+    const totalEf = cart.reduce((sum, i) => {
+      const precio = parseInt((i.price.match(/\d[\d.]*/)?.[0] || '0').replace(/\./g, '')) || 0;
       return sum + precio * i.qty;
     }, 0);
-    const totalStr = '$' + total.toLocaleString('es-AR');
-    totalEl.textContent = totalStr;
+    const totalTd = cart.reduce((sum, i) => {
+      const matches = i.price.match(/\$[\d.]+/g);
+      const precio = matches && matches[1]
+        ? parseInt(matches[1].replace(/[$\.]/g, ''))
+        : parseInt((i.price.match(/\d[\d.]*/)?.[0] || '0').replace(/\./g, '')) || 0;
+      return sum + precio * i.qty;
+    }, 0);
+
+    const efStr = '$' + totalEf.toLocaleString('es-AR');
+    const tdStr = '$' + totalTd.toLocaleString('es-AR');
+    efTotalEl.textContent = efStr;
+    tdTotalEl.textContent = tdStr;
 
     const lines = cart.map(i => {
       const v = [i.color, i.size].filter(Boolean).join(', ');
       return `- ${i.name}${v ? ` (${v})` : ''} x${i.qty} — ${i.price}`;
     }).join('%0A');
-    const msg = `Hola!%20Quiero%20realizar%20el%20siguiente%20pedido:%0A%0A${lines}%0A%0ATotal%3A%20${totalStr}`;
-    waBtn.href = `https://wa.me/5492213080753?text=${msg}`;
+    const msg = `Hola!%20Quiero%20realizar%20el%20siguiente%20pedido:%0A%0A${lines}%0A%0ATotal%20transferencia%3A%20${efStr}`;
+    transfBtn.href = `https://wa.me/5492213080753?text=${msg}`;
   }
 
   // ── MERCADO PAGO CHECKOUT ─────────────────────────────────────
@@ -1394,10 +1639,16 @@
     mpBtn.textContent = '⏳ Procesando...';
 
     try {
+      const cardItems = cart.map(i => {
+        const matches = i.price.match(/\$[\d.]+/g);
+        const cardPrice = matches && matches[1] ? matches[1] : (matches ? matches[0] : i.price);
+        return { ...i, price: cardPrice };
+      });
+
       const response = await fetch('/api/crear-preferencia', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: cart }),
+        body: JSON.stringify({ items: cardItems }),
       });
 
       const data = await response.json();
@@ -1410,10 +1661,10 @@
 
     } catch (err) {
       console.error('Error MP:', err);
-      alert('Hubo un problema al conectar con Mercado Pago. Podés coordinarlo por WhatsApp.');
+      alert('Hubo un problema al procesar el pago con tarjeta.');
       mpBtn.disabled = false;
       mpBtn.classList.remove('loading');
-      mpBtn.textContent = '💳 Pagar con Mercado Pago';
+      mpBtn.textContent = '💳 Tarjeta de crédito/débito';
     }
   });
 
