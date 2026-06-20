@@ -3,7 +3,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Método no permitido' });
   }
 
-  const { items } = req.body;
+  const { items, transferOnly } = req.body;
 
   if (!items || items.length === 0) {
     return res.status(400).json({ error: 'Carrito vacío' });
@@ -36,9 +36,19 @@ module.exports = async function handler(req, res) {
         },
         auto_return: 'approved',
         statement_descriptor: 'MANA STREET',
-        payment_methods: {
-          installments: 3,
-        },
+        payment_methods: transferOnly
+          ? {
+              excluded_payment_types: [
+                { id: 'credit_card' },
+                { id: 'debit_card' },
+                { id: 'prepaid_card' },
+                { id: 'ticket' },
+              ],
+              installments: 1,
+            }
+          : {
+              installments: 3,
+            },
       }),
     });
 

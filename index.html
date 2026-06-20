@@ -513,11 +513,13 @@
     .wa-cart-btn {
       display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       background: #25D366; color: white; width: 100%; padding: 1rem; text-decoration: none;
+      border: none; cursor: none;
       font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px; text-transform: uppercase;
       clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 12px 100%);
       transition: filter 0.2s;
     }
     .wa-cart-btn:hover { filter: brightness(1.1); }
+    .wa-cart-btn:disabled { opacity: 0.4; pointer-events: none; }
     .mp-cart-btn {
       display: flex; align-items: center; justify-content: center; gap: 0.6rem;
       background: var(--accent); color: white; width: 100%; padding: 1rem;
@@ -1055,7 +1057,7 @@
       <span class="cart-total-amount" id="cartTotalTd">$0</span>
     </div>
     <button class="mp-cart-btn" id="mpCartBtn" disabled>💳 Tarjeta de crédito/débito</button>
-    <a href="#" class="wa-cart-btn" id="transfCartBtn" target="_blank" rel="noopener noreferrer" style="opacity:0.4;pointer-events:none;">💸 Transferencia</a>
+    <button class="wa-cart-btn" id="transfCartBtn" disabled>💸 Transferencia</button>
   </div>
 </div>
 
@@ -1569,13 +1571,14 @@
       container.innerHTML = '<div class="cart-empty-msg">Tu carrito está vacío</div>';
       efTotalEl.textContent = '$0';
       tdTotalEl.textContent = '$0';
-      transfBtn.href = 'javascript:void(0)';
-      transfBtn.style.opacity = '0.4'; transfBtn.style.pointerEvents = 'none';
+      transfBtn.disabled = true;
+      transfBtn.style.opacity = '0.4';
       mpBtn.disabled = true; mpBtn.textContent = '💳 Tarjeta de crédito/débito';
       return;
     }
 
-    transfBtn.style.opacity = ''; transfBtn.style.pointerEvents = '';
+    transfBtn.disabled = false;
+    transfBtn.style.opacity = '';
     mpBtn.disabled = false;
 
     container.innerHTML = cart.map(item => {
@@ -1621,15 +1624,46 @@
     efTotalEl.textContent = efStr;
     tdTotalEl.textContent = tdStr;
 
-    const lines = cart.map(i => {
-      const v = [i.color, i.size].filter(Boolean).join(', ');
-      return `- ${i.name}${v ? ` (${v})` : ''} x${i.qty} — ${i.price}`;
-    }).join('%0A');
-    const msg = `Hola!%20Quiero%20realizar%20el%20siguiente%20pedido:%0A%0A${lines}%0A%0ATotal%20transferencia%3A%20${efStr}`;
-    transfBtn.href = `https://wa.me/5492213080753?text=${msg}`;
   }
 
-  // ── MERCADO PAGO CHECKOUT ─────────────────────────────────────
+  // ── MERCADO PAGO CHECKOUT (TRANSFERENCIA) ─────────────────────
+  document.getElementById('transfCartBtn').addEventListener('click', async () => {
+    const transfBtn = document.getElementById('transfCartBtn');
+    if (cart.length === 0) return;
+
+    transfBtn.disabled = true;
+    transfBtn.textContent = '⏳ Procesando...';
+
+    try {
+      const efItems = cart.map(i => {
+        const matches = i.price.match(/\$[\d.]+/g);
+        const efPrice = matches ? matches[0] : i.price;
+        return { ...i, price: efPrice };
+      });
+
+      const response = await fetch('/api/crear-preferencia', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: efItems, transferOnly: true }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al conectar con Mercado Pago');
+      }
+
+      window.location.href = data.init_point;
+
+    } catch (err) {
+      console.error('Error MP Transferencia:', err);
+      alert('Hubo un problema al procesar el pago por transferencia.');
+      transfBtn.disabled = false;
+      transfBtn.textContent = '💸 Transferencia';
+    }
+  });
+
+  // ── MERCADO PAGO CHECKOUT (TARJETA) ───────────────────────────
   document.getElementById('mpCartBtn').addEventListener('click', async () => {
     const mpBtn = document.getElementById('mpCartBtn');
     if (cart.length === 0) return;
