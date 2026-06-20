@@ -696,9 +696,26 @@
     }
     .modal-img-dot.active { background: var(--accent); }
     @media (max-width: 640px) {
-      .modal-layout { grid-template-columns: 1fr; }
-      .modal-image-wrap { min-height: 260px; }
-      .modal-info-col { padding: 1.4rem 1.2rem; max-height: 60vh; }
+      .product-modal {
+        top: 0; left: 0; right: 0; bottom: 0;
+        transform: none !important;
+        width: 100vw; max-width: 100vw;
+        height: 100dvh; max-height: 100dvh;
+        overflow: hidden;
+      }
+      .modal-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: 38dvh 1fr;
+        height: 100dvh;
+        overflow: hidden;
+      }
+      .modal-image-wrap { min-height: unset; height: 100%; }
+      .modal-info-col {
+        padding: 1.2rem 1.2rem 1.5rem;
+        max-height: none;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
     }
     .cart-item-variant {
       font-family: 'DM Sans', sans-serif; font-size: 0.6rem;
@@ -774,6 +791,14 @@
       footer { flex-direction: column; align-items: flex-start; gap: 1.5rem; padding: 2rem 1.25rem; }
       .cart-sidebar { width: 100vw; max-width: 100vw; }
       .contact-stats { grid-template-columns: 1fr; }
+      .cart-header { padding: 1rem 1.25rem; }
+      .cart-items { padding: 0.75rem 1.25rem; }
+      .cart-footer { padding: 1rem 1.25rem; }
+      .qty-btn { width: 36px; height: 36px; }
+      .cart-item-remove { padding: 10px; font-size: 1.1rem; }
+      .modal-close { width: 40px; height: 40px; font-size: 1.1rem; cursor: auto; }
+      .modal-add-btn { cursor: auto; }
+      .modal-arrow { width: 40px; height: 40px; cursor: auto; }
     }
     @media (max-width: 480px) {
       .products-grid { grid-template-columns: 1fr; }
@@ -1487,11 +1512,13 @@
 
     document.getElementById('productModal').classList.add('open');
     document.getElementById('productModalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
 
   function closeProductModal() {
     document.getElementById('productModal').classList.remove('open');
     document.getElementById('productModalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   document.getElementById('modalClose').addEventListener('click', closeProductModal);
@@ -1706,11 +1733,13 @@
     document.getElementById('cartSidebar').classList.add('open');
     document.getElementById('cartOverlay').classList.add('open');
     renderCart();
+    document.body.style.overflow = 'hidden';
   }
 
   function closeCart() {
     document.getElementById('cartSidebar').classList.remove('open');
     document.getElementById('cartOverlay').classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   document.getElementById('cartOverlay').addEventListener('click', closeCart);
