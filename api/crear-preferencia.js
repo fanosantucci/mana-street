@@ -43,6 +43,7 @@ module.exports = async function handler(req, res) {
                 { id: 'debit_card' },
                 { id: 'prepaid_card' },
                 { id: 'ticket' },
+                { id: 'account_money' },
               ],
               installments: 1,
             }
