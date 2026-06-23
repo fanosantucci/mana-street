@@ -1379,13 +1379,23 @@
       <div id="coSumItems"></div>
       <hr class="co-sum-hr">
       <div class="co-sum-row">
-        <span>Transferencia</span>
+        <span>Subtotal</span>
+        <span id="coSumSubtotal">$0</span>
+      </div>
+      <div class="co-sum-row" id="coSumShippingRow" style="display:none;">
+        <span>Envío estimado 📦</span>
+        <span id="coSumShipping" style="color:var(--accent);"></span>
+      </div>
+      <hr class="co-sum-hr">
+      <div class="co-sum-row">
+        <span>Total transferencia</span>
         <span id="coSumEf">$0</span>
       </div>
       <div class="co-sum-row main">
-        <span>Tarjeta</span>
+        <span>Total tarjeta</span>
         <span id="coSumTd">$0</span>
       </div>
+      <p id="coShippingNote" style="display:none; font-size:0.65rem; opacity:0.38; margin-top:0.6rem; line-height:1.45;">* Envío estimado por Correo Argentino. El costo final puede variar según peso y destino exacto.</p>
     </div>
   </div>
 </div>
@@ -1956,6 +1966,17 @@
   let mpBrickController = null;
   let mpSdkInstance = null;
   let coCustomer = {};
+  let coShipping = 0;
+  const SHIPPING_COSTS = {
+    'Buenos Aires': 8490, 'CABA': 7500, 'Catamarca': 13500,
+    'Chaco': 14000, 'Chubut': 15500, 'Córdoba': 10500,
+    'Corrientes': 13500, 'Entre Ríos': 11000, 'Formosa': 14500,
+    'Jujuy': 13500, 'La Pampa': 11000, 'La Rioja': 12500,
+    'Mendoza': 12000, 'Misiones': 14000, 'Neuquén': 12500,
+    'Río Negro': 13000, 'Salta': 13000, 'San Juan': 12000,
+    'San Luis': 11500, 'Santa Cruz': 17000, 'Santa Fe': 10500,
+    'Santiago del Estero': 13000, 'Tierra del Fuego': 19000, 'Tucumán': 12500,
+  };
 
   async function loadMpSdk() {
     if (window.MercadoPago) return;
@@ -1998,8 +2019,12 @@
         <div class="co-sum-qty">x${i.qty}</div>
       </div>`;
     }).join('');
+    document.getElementById('coSumSubtotal').textContent = '$' + ef.toLocaleString('es-AR');
     document.getElementById('coSumEf').textContent = '$' + ef.toLocaleString('es-AR');
     document.getElementById('coSumTd').textContent = '$' + td.toLocaleString('es-AR');
+    document.getElementById('coSumShippingRow').style.display = 'none';
+    document.getElementById('coShippingNote').style.display = 'none';
+    coShipping = 0;
 
     showCoStep(2);
     document.getElementById('coOverlay').classList.add('open');
@@ -2044,9 +2069,18 @@
       direccion: document.getElementById('coDireccion').value.trim(),
     };
 
+    coShipping = SHIPPING_COSTS[coCustomer.provincia] || 10000;
+    document.getElementById('coSumShipping').textContent = '$' + coShipping.toLocaleString('es-AR');
+    document.getElementById('coSumShippingRow').style.display = '';
+    document.getElementById('coShippingNote').style.display = '';
+
     const { ef, td } = calcTotals();
-    document.getElementById('coTabEfPrice').textContent = '$' + ef.toLocaleString('es-AR');
-    document.getElementById('coTabTdPrice').textContent = '$' + td.toLocaleString('es-AR');
+    const efTotal = ef + coShipping;
+    const tdTotal = td + coShipping;
+    document.getElementById('coTabEfPrice').textContent = '$' + efTotal.toLocaleString('es-AR');
+    document.getElementById('coTabTdPrice').textContent = '$' + tdTotal.toLocaleString('es-AR');
+    document.getElementById('coSumEf').textContent = '$' + efTotal.toLocaleString('es-AR');
+    document.getElementById('coSumTd').textContent = '$' + tdTotal.toLocaleString('es-AR');
     selectCoTab('transfer');
     showCoStep(3);
   }
@@ -2060,10 +2094,14 @@
     if (tab === 'transfer') {
       const { ef } = calcTotals();
       const orderText = cart.map(i => `${i.name} (x${i.qty})`).join(', ');
-      const totalStr = '$' + ef.toLocaleString('es-AR');
+      const subtotalStr = '$' + ef.toLocaleString('es-AR');
+      const shippingStr = '$' + coShipping.toLocaleString('es-AR');
+      const totalStr = '$' + (ef + coShipping).toLocaleString('es-AR');
       const waMsg = encodeURIComponent(
         `Hola! Soy *${coCustomer.nombre} ${coCustomer.apellido}* (${coCustomer.email}).\n` +
         `Pedido: ${orderText}\n` +
+        `Subtotal: ${subtotalStr}\n` +
+        `Envío estimado: ${shippingStr}\n` +
         `Total transferencia: *${totalStr}*\n` +
         `Envío a: ${coCustomer.direccion}, ${coCustomer.localidad}, ${coCustomer.provincia} (CP ${coCustomer.cp})\n` +
         `Tel: ${coCustomer.tel}\nTe mando el comprobante!`
@@ -2087,7 +2125,7 @@
       document.getElementById('coBrick').innerHTML = '';
 
       mpBrickController = await mpSdkInstance.bricks().create('cardPayment', 'coBrick', {
-        initialization: { amount: td, payer: { email: coCustomer.email || '' } },
+        initialization: { amount: td + coShipping, payer: { email: coCustomer.email || '' } },
         customization: {
           visual: { style: { theme: 'dark' } },
           paymentMethods: { maxInstallments: 3 },
@@ -2100,7 +2138,7 @@
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify({
                 ...formData,
-                transaction_amount: td,
+                transaction_amount: td + coShipping,
                 description: cart.map(i => `${i.name} x${i.qty}`).join(', '),
               }),
             })
