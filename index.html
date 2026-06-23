@@ -400,9 +400,13 @@
     }
     .cat-emoji-wrap {
       width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 5rem;
+      overflow: hidden;
       transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .cat-emoji-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block;
     }
     .cat-card:hover .cat-emoji-wrap { transform: scale(1.07); }
     .cat-info {
@@ -1063,28 +1067,36 @@
   <div id="categoriesView">
     <div class="cat-grid">
       <div class="cat-card reveal" data-cat="buzos">
-        <div class="cat-emoji-wrap" style="background:#0d1520;">🧥</div>
+        <div class="cat-emoji-wrap">
+          <img src="imagenes/Buzo sin capucha NEGRO (Talle S).jpeg" alt="Buzos" loading="lazy">
+        </div>
         <div class="cat-info">
           <span class="cat-name">Buzos</span>
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
       <div class="cat-card reveal d1" data-cat="remeras">
-        <div class="cat-emoji-wrap" style="background:#1a0a06;">👕</div>
+        <div class="cat-emoji-wrap">
+          <img src="imagenes/Remera BhT.jpeg" alt="Remeras" loading="lazy">
+        </div>
         <div class="cat-info">
           <span class="cat-name">Remeras</span>
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
       <div class="cat-card reveal d2" data-cat="abrigos">
-        <div class="cat-emoji-wrap" style="background:#0d1a0d;">🧣</div>
+        <div class="cat-emoji-wrap">
+          <img src="imagenes/Campera de jean.jpeg" alt="Abrigos" loading="lazy">
+        </div>
         <div class="cat-info">
           <span class="cat-name">Abrigos</span>
           <span class="cat-arrow">Ver todo →</span>
         </div>
       </div>
       <div class="cat-card reveal d3" data-cat="pantalones">
-        <div class="cat-emoji-wrap" style="background:#0d0d1a;">👖</div>
+        <div class="cat-emoji-wrap">
+          <img src="imagenes/Jean Baggy Claro.jpeg" alt="Pantalones" loading="lazy">
+        </div>
         <div class="cat-info">
           <span class="cat-name">Pantalones</span>
           <span class="cat-arrow">Ver todo →</span>
