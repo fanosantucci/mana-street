@@ -806,6 +806,102 @@
       .hero-title { font-size: clamp(3.8rem, 23vw, 7rem); }
       .btn-hero { font-size: 0.95rem; padding: 0.85rem 1.8rem; }
     }
+
+    /* TRANSFER MODAL */
+    .transfer-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.72);
+      z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.25s;
+    }
+    .transfer-overlay.open { opacity: 1; pointer-events: all; }
+    .transfer-modal {
+      position: fixed; top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.95);
+      background: #141414; border: 1px solid rgba(240,235,224,0.1);
+      border-radius: 16px; width: 92%; max-width: 400px;
+      z-index: 501; padding: 2rem;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s, transform 0.25s;
+      max-height: 92vh; overflow-y: auto;
+    }
+    .transfer-modal.open { opacity: 1; pointer-events: all; transform: translate(-50%, -50%) scale(1); }
+    .transfer-modal-header {
+      display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem;
+    }
+    .transfer-modal-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 3px; }
+    .transfer-modal-close {
+      background: none; border: none; color: var(--white); font-size: 1.1rem;
+      width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+      border-radius: 6px; transition: background 0.2s;
+    }
+    .transfer-modal-close:hover { background: rgba(255,255,255,0.08); }
+    .transfer-total-label { font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase; opacity: 0.45; margin-bottom: 0.15rem; }
+    .transfer-total-amount { font-family: 'Bebas Neue', sans-serif; font-size: 2.4rem; color: var(--accent); margin-bottom: 1.4rem; }
+    .transfer-bank-details {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 1.2rem;
+    }
+    .transfer-detail-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0.55rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .transfer-detail-row:last-child { border-bottom: none; }
+    .transfer-detail-label { font-size: 0.68rem; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.45; flex-shrink: 0; }
+    .transfer-detail-right { display: flex; align-items: center; gap: 0.5rem; max-width: 65%; }
+    .transfer-detail-value { font-size: 0.85rem; font-weight: 600; text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .transfer-copy-btn {
+      background: rgba(26,174,205,0.12); border: 1px solid rgba(26,174,205,0.25);
+      color: var(--accent); font-size: 0.62rem; letter-spacing: 1px; text-transform: uppercase;
+      padding: 0.18rem 0.45rem; border-radius: 5px; transition: background 0.2s; flex-shrink: 0;
+    }
+    .transfer-copy-btn:hover { background: rgba(26,174,205,0.25); }
+    .transfer-note { font-size: 0.8rem; opacity: 0.55; margin-bottom: 1.1rem; line-height: 1.55; }
+    .transfer-wa-btn {
+      display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: #25D366; color: white; width: 100%; padding: 0.9rem;
+      text-decoration: none; border-radius: 10px; font-weight: 700;
+      font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase;
+      transition: filter 0.2s; border: none;
+    }
+    .transfer-wa-btn:hover { filter: brightness(1.1); }
+
+    /* CARD PAYMENT PANEL */
+    .card-payment-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+      z-index: 500; opacity: 0; pointer-events: none; transition: opacity 0.3s;
+    }
+    .card-payment-overlay.open { opacity: 1; pointer-events: all; }
+    .card-payment-panel {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: 440px; max-width: 98vw;
+      background: var(--black); z-index: 501;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      display: flex; flex-direction: column;
+      border-left: 1px solid rgba(240,235,224,0.08);
+    }
+    .card-payment-panel.open { transform: translateX(0); }
+    .card-payment-header {
+      padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid rgba(240,235,224,0.08); flex-shrink: 0;
+    }
+    .card-payment-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 3px; }
+    .card-payment-close {
+      background: none; border: none; color: var(--white); font-size: 1.1rem;
+      width: 36px; height: 36px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .card-payment-close:hover { background: rgba(255,255,255,0.08); }
+    .card-payment-body { padding: 1.5rem 2rem; flex: 1; overflow-y: auto; }
+    .card-payment-amount-label { font-size: 0.68rem; letter-spacing: 2.5px; text-transform: uppercase; opacity: 0.45; margin-bottom: 0.15rem; }
+    .card-payment-amount { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--accent); margin-bottom: 1.5rem; }
+    .card-payment-loading { text-align: center; padding: 3rem 0; opacity: 0.45; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; }
+    .card-payment-error { text-align: center; padding: 2rem 0; opacity: 0.5; font-size: 0.85rem; line-height: 1.5; }
+    @media (max-width: 600px) {
+      .transfer-modal { padding: 1.5rem; }
+      .card-payment-panel { width: 100vw; max-width: 100vw; }
+      .card-payment-header { padding: 1rem 1.25rem; }
+      .card-payment-body { padding: 1rem 1.25rem; }
+    }
   </style>
 </head>
 <body>
@@ -1083,6 +1179,63 @@
     </div>
     <button class="mp-cart-btn" id="mpCartBtn" disabled>💳 Tarjeta de crédito/débito</button>
     <button class="wa-cart-btn" id="transfCartBtn" disabled>💸 Transferencia</button>
+  </div>
+</div>
+
+<!-- TRANSFER MODAL -->
+<div class="transfer-overlay" id="transferOverlay"></div>
+<div class="transfer-modal" id="transferModal">
+  <div class="transfer-modal-header">
+    <span class="transfer-modal-title">Transferencia</span>
+    <button class="transfer-modal-close" id="transferModalClose">✕</button>
+  </div>
+  <p class="transfer-total-label">Total a transferir</p>
+  <p class="transfer-total-amount" id="transferModalTotal">$0</p>
+  <div class="transfer-bank-details">
+    <div class="transfer-detail-row">
+      <span class="transfer-detail-label">CVU</span>
+      <div class="transfer-detail-right">
+        <span class="transfer-detail-value" id="tfCvu">0000003100014858249687</span>
+        <button class="transfer-copy-btn" onclick="copyField('tfCvu',this)">Copiar</button>
+      </div>
+    </div>
+    <div class="transfer-detail-row">
+      <span class="transfer-detail-label">Alias</span>
+      <div class="transfer-detail-right">
+        <span class="transfer-detail-value" id="tfAlias">fano.santucci</span>
+        <button class="transfer-copy-btn" onclick="copyField('tfAlias',this)">Copiar</button>
+      </div>
+    </div>
+    <div class="transfer-detail-row">
+      <span class="transfer-detail-label">Titular</span>
+      <div class="transfer-detail-right">
+        <span class="transfer-detail-value">Mana Street</span>
+      </div>
+    </div>
+    <div class="transfer-detail-row">
+      <span class="transfer-detail-label">Banco</span>
+      <div class="transfer-detail-right">
+        <span class="transfer-detail-value">Mercado Pago</span>
+      </div>
+    </div>
+  </div>
+  <p class="transfer-note">Una vez realizada la transferencia, envianos el comprobante por WhatsApp y coordinamos el envío.</p>
+  <a class="transfer-wa-btn" id="transferWaBtn" href="https://wa.me/5492213080753" target="_blank" rel="noopener noreferrer">📲 Enviar comprobante por WhatsApp</a>
+</div>
+
+<!-- CARD PAYMENT PANEL -->
+<div class="card-payment-overlay" id="cardPaymentOverlay"></div>
+<div class="card-payment-panel" id="cardPaymentPanel">
+  <div class="card-payment-header">
+    <span class="card-payment-title">Pago con Tarjeta</span>
+    <button class="card-payment-close" id="cardPaymentClose">✕</button>
+  </div>
+  <div class="card-payment-body">
+    <p class="card-payment-amount-label">Total a pagar</p>
+    <p class="card-payment-amount" id="cardPaymentAmount">$0</p>
+    <div id="cardPaymentBrick">
+      <div class="card-payment-loading">Cargando formulario de pago...</div>
+    </div>
   </div>
 </div>
 
@@ -1653,81 +1806,165 @@
 
   }
 
-  // ── MERCADO PAGO CHECKOUT (TRANSFERENCIA) ─────────────────────
-  document.getElementById('transfCartBtn').addEventListener('click', async () => {
-    const transfBtn = document.getElementById('transfCartBtn');
+  // ── TRANSFERENCIA MODAL ───────────────────────────────────────
+  document.getElementById('transfCartBtn').addEventListener('click', () => {
     if (cart.length === 0) return;
 
-    transfBtn.disabled = true;
-    transfBtn.textContent = '⏳ Procesando...';
+    const totalEf = cart.reduce((sum, i) => {
+      const m = i.price.match(/\$[\d.]+/g);
+      const p = m
+        ? parseInt(m[0].replace(/[$\.]/g, ''))
+        : parseInt((i.price.match(/\d[\d.]*/)?.[0] || '0').replace(/\./g, '')) || 0;
+      return sum + p * i.qty;
+    }, 0);
 
-    try {
-      const efItems = cart.map(i => {
-        const matches = i.price.match(/\$[\d.]+/g);
-        const efPrice = matches ? matches[0] : i.price;
-        return { ...i, price: efPrice };
-      });
+    document.getElementById('transferModalTotal').textContent = '$' + totalEf.toLocaleString('es-AR');
 
-      const response = await fetch('/api/crear-preferencia', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: efItems, transferOnly: true }),
-      });
+    const orderText = cart.map(i => `${i.name} (x${i.qty})`).join(', ');
+    const totalStr = '$' + totalEf.toLocaleString('es-AR');
+    const waMsg = encodeURIComponent(`Hola! Hice una transferencia de *${totalStr}* por: ${orderText}. Te mando el comprobante.`);
+    document.getElementById('transferWaBtn').href = `https://wa.me/5492213080753?text=${waMsg}`;
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Error al conectar con Mercado Pago');
-      }
-
-      window.location.href = data.init_point;
-
-    } catch (err) {
-      console.error('Error MP Transferencia:', err);
-      alert('Hubo un problema al procesar el pago por transferencia.');
-      transfBtn.disabled = false;
-      transfBtn.textContent = '💸 Transferencia';
-    }
+    closeCart();
+    document.getElementById('transferOverlay').classList.add('open');
+    document.getElementById('transferModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
   });
 
-  // ── MERCADO PAGO CHECKOUT (TARJETA) ───────────────────────────
+  function closeTransferModal() {
+    document.getElementById('transferOverlay').classList.remove('open');
+    document.getElementById('transferModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('transferModalClose').addEventListener('click', closeTransferModal);
+  document.getElementById('transferOverlay').addEventListener('click', closeTransferModal);
+
+  function copyField(id, btn) {
+    const text = document.getElementById(id).textContent.trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '✓ Copiado';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    });
+  }
+
+  // ── TARJETA (CHECKOUT BRICKS) ─────────────────────────────────
+  let mpBrickController = null;
+  let mpSdkInstance = null;
+
+  async function loadMpSdk() {
+    if (window.MercadoPago) return;
+    await new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = 'https://sdk.mercadopago.com/js/v2';
+      s.onload = resolve; s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  async function closeCardPanel() {
+    if (mpBrickController) {
+      try { await mpBrickController.unmount(); } catch {}
+      mpBrickController = null;
+    }
+    document.getElementById('cardPaymentOverlay').classList.remove('open');
+    document.getElementById('cardPaymentPanel').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   document.getElementById('mpCartBtn').addEventListener('click', async () => {
-    const mpBtn = document.getElementById('mpCartBtn');
     if (cart.length === 0) return;
 
-    mpBtn.disabled = true;
-    mpBtn.classList.add('loading');
-    mpBtn.textContent = '⏳ Procesando...';
+    const totalTd = cart.reduce((sum, i) => {
+      const m = i.price.match(/\$[\d.]+/g);
+      const p = m && m[1]
+        ? parseInt(m[1].replace(/[$\.]/g, ''))
+        : parseInt((i.price.match(/\d[\d.]*/)?.[0] || '0').replace(/\./g, '')) || 0;
+      return sum + p * i.qty;
+    }, 0);
+
+    document.getElementById('cardPaymentAmount').textContent = '$' + totalTd.toLocaleString('es-AR');
+    document.getElementById('cardPaymentBrick').innerHTML = '<div class="card-payment-loading">Cargando formulario de pago...</div>';
+
+    closeCart();
+    document.getElementById('cardPaymentOverlay').classList.add('open');
+    document.getElementById('cardPaymentPanel').classList.add('open');
+    document.body.style.overflow = 'hidden';
 
     try {
-      const cardItems = cart.map(i => {
-        const matches = i.price.match(/\$[\d.]+/g);
-        const cardPrice = matches && matches[1] ? matches[1] : (matches ? matches[0] : i.price);
-        return { ...i, price: cardPrice };
-      });
+      await loadMpSdk();
 
-      const response = await fetch('/api/crear-preferencia', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ items: cardItems }),
-      });
+      const cfgRes = await fetch('/api/mp-config');
+      const { publicKey } = await cfgRes.json();
+      if (!publicKey) throw new Error('Clave pública no disponible');
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Error al conectar con Mercado Pago');
+      if (!mpSdkInstance) {
+        mpSdkInstance = new MercadoPago(publicKey, { locale: 'es-AR' });
       }
 
-      window.location.href = data.init_point;
+      if (mpBrickController) {
+        try { await mpBrickController.unmount(); } catch {}
+        mpBrickController = null;
+      }
+
+      document.getElementById('cardPaymentBrick').innerHTML = '';
+
+      const bricks = mpSdkInstance.bricks();
+      mpBrickController = await bricks.create('cardPayment', 'cardPaymentBrick', {
+        initialization: { amount: totalTd },
+        customization: {
+          visual: { style: { theme: 'dark' } },
+          paymentMethods: { maxInstallments: 3 },
+        },
+        callbacks: {
+          onReady: () => {},
+          onSubmit: (formData) => new Promise((resolve, reject) => {
+            const payload = {
+              ...formData,
+              transaction_amount: totalTd,
+              description: cart.map(i => `${i.name} x${i.qty}`).join(', '),
+            };
+            fetch('/api/crear-pago', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload),
+            })
+              .then(r => r.json())
+              .then(data => {
+                if (data.status === 'approved') {
+                  resolve();
+                  cart.length = 0;
+                  updateCartBadge();
+                  renderCart();
+                  setTimeout(() => {
+                    closeCardPanel();
+                    window.location.href = '/gracias.html';
+                  }, 1200);
+                } else if (data.status === 'in_process' || data.status === 'pending') {
+                  resolve();
+                  setTimeout(() => {
+                    closeCardPanel();
+                    alert('Tu pago está siendo procesado. Te avisaremos cuando se confirme.');
+                  }, 800);
+                } else {
+                  reject(new Error(data.status_detail || 'Error en el pago'));
+                }
+              })
+              .catch(reject);
+          }),
+          onError: (err) => { console.error('Brick error:', err); },
+        },
+      });
 
     } catch (err) {
-      console.error('Error MP:', err);
-      alert('Hubo un problema al procesar el pago con tarjeta.');
-      mpBtn.disabled = false;
-      mpBtn.classList.remove('loading');
-      mpBtn.textContent = '💳 Tarjeta de crédito/débito';
+      console.error('Error cargando pago:', err);
+      document.getElementById('cardPaymentBrick').innerHTML =
+        '<p class="card-payment-error">No se pudo cargar el formulario. Intentá de nuevo.</p>';
     }
   });
+
+  document.getElementById('cardPaymentClose').addEventListener('click', closeCardPanel);
+  document.getElementById('cardPaymentOverlay').addEventListener('click', closeCardPanel);
 
   function openCart() {
     document.getElementById('cartSidebar').classList.add('open');
