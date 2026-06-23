@@ -2107,6 +2107,7 @@
         `Tel: ${coCustomer.tel}\nTe mando el comprobante!`
       );
       document.getElementById('coWaBtn').href = `https://wa.me/5492213080753?text=${waMsg}`;
+      document.getElementById('coWaBtn').onclick = () => sendConfirmationEmail('Transferencia');
     } else {
       initCoBrick();
     }
@@ -2145,6 +2146,7 @@
               .then(r => r.json())
               .then(data => {
                 if (data.status === 'approved') {
+                  sendConfirmationEmail('Tarjeta');
                   resolve();
                   cart.length = 0; updateCartBadge(); renderCart();
                   setTimeout(() => { closeCheckout(); window.location.href = '/gracias.html'; }, 1200);
@@ -2164,6 +2166,23 @@
       console.error('Error cargando brick:', err);
       document.getElementById('coBrick').innerHTML = '<p class="card-payment-error">No se pudo cargar el formulario. Intentá de nuevo.</p>';
     }
+  }
+
+  function sendConfirmationEmail(metodo) {
+    const { ef, td } = calcTotals();
+    const subtotal = metodo === 'Transferencia' ? ef : td;
+    fetch('/api/enviar-confirmacion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        cliente: coCustomer,
+        productos: cart.map(i => ({ nombre: i.name, qty: i.qty, precio: i.price, color: i.color || '', talle: i.size || '' })),
+        subtotal,
+        envio: coShipping,
+        total: subtotal + coShipping,
+        metodo,
+      }),
+    }).catch(() => {});
   }
 
   function copyCoField(id, btn) {
